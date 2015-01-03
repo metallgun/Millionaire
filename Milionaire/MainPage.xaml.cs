@@ -48,7 +48,7 @@ namespace Milionaire
 
         private void buttonNewGame_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(NewGame));
+            Frame.Navigate(typeof(NewPlayerPage));
         }
     }
 }

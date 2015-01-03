@@ -21,9 +21,9 @@ namespace Milionaire
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class NewGame : Page
+    public sealed partial class NewPlayerPage : Page
     {
-        public NewGame()
+        public NewPlayerPage()
         {
             this.InitializeComponent();
         }
@@ -44,20 +44,24 @@ namespace Milionaire
 
         private void continueButton_Click(object sender, RoutedEventArgs e)
         {
-            bool checkdata=true;
+            bool checkdata = true;
             if (playerNameTextbox.Text == null || playerNameTextbox.Text == "")
             {
                 ShowMessagebox();
                 checkdata = false;
             }
 
-                PlayerContext pc = new PlayerContext()
-                {
-                    PlayerName = playerNameTextbox.Text
-                };
+            //PlayerContext pc = new PlayerContext()
+            //{
+            //    PlayerName = playerNameTextbox.Text
+            //};
+            Player pc = new Player()
+            {
+                Name =playerNameTextbox.Text,
+                Score = 0
+            };
 
-                if (checkdata==true) Frame.Navigate(typeof(NewgamePage), pc);
-            
+            if (checkdata == true) Frame.Navigate(typeof(NewgamePage), pc);
         }
 
         private async void ShowMessagebox()

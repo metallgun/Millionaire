@@ -13,7 +13,8 @@
         	<Run Text="Проверим передачу данных"/>
         	<Run Text=":"/>
         </TextBlock>
-        <TextBlock x:Name="nameText" HorizontalAlignment="Center" Margin="0,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
+        <TextBlock x:Name="nameText" HorizontalAlignment="Center" Margin="0,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
+        <TextBlock x:Name="scoreText" HorizontalAlignment="Center" Margin="0,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
 
     </Grid>
 </Page>

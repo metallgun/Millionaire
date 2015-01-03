@@ -91,9 +91,8 @@
     <Compile Include="NewGamePage.xaml.cs">
       <DependentUpon>NewGamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerContext.cs" />
-    <Compile Include="PlayerPage.xaml.cs">
-      <DependentUpon>PlayerPage.xaml</DependentUpon>
+    <Compile Include="NewPlayerPage.xaml.cs">
+      <DependentUpon>NewPlayerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,7 +125,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerPage.xaml">
+    <Page Include="NewPlayerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

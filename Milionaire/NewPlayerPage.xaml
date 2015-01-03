@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Milionaire.NewPlayerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Milionaire"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/640x400.jpg"/>
+        </Grid.Background>
+        <HyperlinkButton x:Name="returnButton" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Назад" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" FontWeight="Bold" Click="returnButton_Click" Width="143"/>
+        <TextBlock x:Name="playerNameText" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Введите свое имя" VerticalAlignment="Top" FontSize="24"/>
+        <TextBox x:Name="playerNameTextbox" HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="210" PlaceholderText=""/>
+        <HyperlinkButton x:Name="continueButton" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Играть" HorizontalAlignment="Center" Margin="128,0,129,461" VerticalAlignment="Bottom" FontWeight="Bold" Click="continueButton_Click" Width="143"/>
+        <TextBlock x:Name="testText" HorizontalAlignment="Left" Margin="155,361,0,0" TextWrapping="Wrap" Text="Проверочка для Github" VerticalAlignment="Top" FontSize="24"/>
+
+    </Grid>
+</Page>
