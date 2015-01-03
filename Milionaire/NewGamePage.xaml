@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Milionaire.NewGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Milionaire"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="newGameText" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,30,0,0" 
+                   TextWrapping="Wrap" 
+                   Text="Новая игра" 
+                   VerticalAlignment="Top" 
+                   FontSize="24"/>
+        <Button x:Name="buttonGoBack" Content="Назад" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Click="buttonGoBack_Click"/>
+
+    </Grid>
+</Page>
