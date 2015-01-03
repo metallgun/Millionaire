@@ -45,7 +45,8 @@ namespace Milionaire
             // данное событие обрабатывается для вас.
         }
 
-        private void hpbtnNewGame_Click(object sender, RoutedEventArgs e)
+
+        private void buttonNewGame_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(NewGame));
         }

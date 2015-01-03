@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -34,6 +35,35 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void continueButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool checkdata=true;
+            if (playerNameTextbox.Text == null || playerNameTextbox.Text == "")
+            {
+                ShowMessagebox();
+                checkdata = false;
+            }
+
+                PlayerContext pc = new PlayerContext()
+                {
+                    PlayerName = playerNameTextbox.Text
+                };
+
+                if (checkdata==true) Frame.Navigate(typeof(NewgamePage), pc);
+            
+        }
+
+        private async void ShowMessagebox()
+        {
+            MessageDialog msg = new MessageDialog("Введите имя игрока"); //по хорошему нужно ex.message Но я хз как это сделать лол
+            await msg.ShowAsync();
         }
     }
 }

@@ -20,9 +20,9 @@ namespace Milionaire
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class NewGamePage : Page
+    public sealed partial class NewgamePage : Page
     {
-        public NewGamePage()
+        public NewgamePage()
         {
             this.InitializeComponent();
         }
@@ -34,11 +34,10 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            var pc = (PlayerContext)e.Parameter;
+            nameText.Text = pc.PlayerName;
         }
 
-        private void buttonGoBack_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
-        }
+
     }
 }
