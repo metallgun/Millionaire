@@ -39,7 +39,8 @@ namespace Milionaire
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            //Frame.Navigate(typeof(MainPage));
+            Frame.GoBack();
         }
 
         private void continueButton_Click(object sender, RoutedEventArgs e)
