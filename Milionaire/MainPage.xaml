@@ -5,15 +5,9 @@
     xmlns:local="using:Milionaire"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Foreground="{x:Null}">
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Margin="0,0.333,0,-0.333">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Center" Margin="44,30,44,0" TextWrapping="Wrap" Text="Кто хочет стать миллионером?" VerticalAlignment="Top" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False"/>
-        <Button x:Name="buttonNewGame" Content="Новая игра" HorizontalAlignment="Center" Margin="128,100,129,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False"/>
-        <Button x:Name="buttonRecords" Content="Рекорды" HorizontalAlignment="Center" Margin="142,200,143,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False"/>
-
+    <Grid>
     </Grid>
 </Page>
