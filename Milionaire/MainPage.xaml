@@ -13,8 +13,8 @@
             <ImageBrush ImageSource="ms-appx:/Assets/640x400.jpg" Stretch="Fill"/>
         </Grid.Background>
         <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Кто хочет стать миллионером?" VerticalAlignment="Top" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False"/>
-        <Button x:Name="buttonNewGame" Content="Новая игра" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False"/>
         <Button x:Name="buttonRecords" Content="Рекорды" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False"/>
+        <HyperlinkButton x:Name="hpbtnNewGame" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Новая Игра" HorizontalAlignment="Left" Margin="130,133,0,0" VerticalAlignment="Top" FontWeight="Bold" Click="hpbtnNewGame_Click" Width="143"/>
 
     </Grid>
 </Page>
