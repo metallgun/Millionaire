@@ -74,7 +74,6 @@ namespace Milionaire
                     }
                 };
             }
-
             FillFeilds(1);
         }
 
@@ -133,6 +132,7 @@ namespace Milionaire
                     count++;
                 }
             }
+
         }
 
         private void Clicks()
