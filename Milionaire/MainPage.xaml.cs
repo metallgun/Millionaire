@@ -27,6 +27,9 @@ namespace Milionaire
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
+
+            //Список вопросов
+
         }
 
         /// <summary>

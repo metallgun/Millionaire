@@ -65,7 +65,7 @@ namespace Milionaire
 
         private void continueButton_Click(object sender, RoutedEventArgs e)
         {
-            string correctAnswer = "6";
+            string correctAnswer = "";   //для проверки пока не добавлен вопрос
             Brush orange = new SolidColorBrush(Windows.UI.Colors.Orange);
             foreach (Button b in answerButtons)
             {
@@ -87,7 +87,21 @@ namespace Milionaire
                         }
                     }
                 }
-            
+            }
+        }
+
+        private void _5050Button_Click(object sender, RoutedEventArgs e)
+        {
+            string correctAnswer = "";  //для проверки пока не добавлен вопрос
+            int count = 0;
+            while (count < 2)
+            {
+                int rnd = new Random().Next(3);
+                if (answerButtons[rnd].Content != correctAnswer && answerButtons[rnd].IsEnabled)
+                {
+                    answerButtons[rnd].IsEnabled = false;
+                    count++;
+                }
             }
         }
     }
