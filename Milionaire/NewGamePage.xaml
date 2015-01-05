@@ -26,9 +26,9 @@
         <Button x:Name="answerButton2" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,57,0,0" VerticalAlignment="Top" Width="361"/>
         <Button x:Name="answerButton3" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,113,0,0" VerticalAlignment="Top" Width="361"/>
         <Button x:Name="answerButton4" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,169,0,0" VerticalAlignment="Top" Width="361"/>
-        <Button x:Name="optionsButton" HorizontalAlignment="Left" Height="59" Margin="271,-10,0,0" VerticalAlignment="Top" Width="110" Grid.Row="0" />
         <Button x:Name="_5050Button" Grid.Row="3" HorizontalAlignment="Left" Height="59" Margin="20,0,0,0" VerticalAlignment="Top" Width="74" Click="_5050Button_Click"  />
         <Button x:Name="ringButton" Grid.Row="3" HorizontalAlignment="Center" Height="59" Margin="150,0,150,0" VerticalAlignment="Top" Width="74" />
         <Button x:Name="audienceButton" Grid.Row="3" HorizontalAlignment="Right" Height="59" Margin="0,0,20,0" VerticalAlignment="Top" Width="74" />
+        <Image HorizontalAlignment="Left" Height="59" Margin="331,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="59" Source="Assets/gear.png"/>
     </Grid>
 </Page>
