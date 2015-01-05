@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Threading.Tasks;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -31,15 +32,10 @@ namespace Milionaire
             this.InitializeComponent();
             questionList = new List<Question>();
             Question.PopulateQuestionList(questionList);
-
-            currentQuestion = new Question();
-            currentQuestion = questionList[(new Random()).Next(questionList.Count - 1)];
-
             answerButtons.Add(answerButton1);
             answerButtons.Add(answerButton2);
             answerButtons.Add(answerButton3);
             answerButtons.Add(answerButton4);
-
             foreach (Button b in answerButtons)
             {
                 b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
@@ -57,6 +53,7 @@ namespace Milionaire
                         b.Background.Opacity = 1;
                     };
             }
+            FillFeilds(1);
         }
 
         /// <summary>
@@ -82,6 +79,8 @@ namespace Milionaire
                     if (b.Content.ToString() == correctAnswer)
                     {
                         b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                        Task.Delay(3000);
+                        //Обновление
                     }
                     else
                     {
@@ -109,6 +108,30 @@ namespace Milionaire
                 {
                     answerButtons[rnd].Visibility = Visibility.Collapsed;
                     count++;
+                }
+            }
+        }
+
+        //Заполнение полей
+        private void FillFeilds(int difficulty)
+        {
+            foreach (Button b in answerButtons) b.Content = null;
+            currentQuestion = new Question();
+            var query = questionList.Where(e => e.Difficulty == difficulty);
+            currentQuestion = query.ToList()[(new Random()).Next(query.ToList().Count - 1)];
+            questionList.Remove(currentQuestion);
+            questionText.Text = currentQuestion.QuestionName;
+            List<string> wrong = new List<string>();
+            wrong.Add(currentQuestion.WrongAnswer1);
+            wrong.Add(currentQuestion.WrongAnswer2);
+            wrong.Add(currentQuestion.WrongAnswer3);
+            answerButtons[(new Random()).Next(3)].Content = currentQuestion.RightAnswer;
+            foreach (Button b in answerButtons)
+            {
+                if (b.Content==null)
+                {
+                    b.Content = wrong[(new Random()).Next(wrong.Count - 1)];
+                    wrong.Remove(b.Content.ToString());
                 }
             }
         }
