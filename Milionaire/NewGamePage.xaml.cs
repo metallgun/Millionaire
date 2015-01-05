@@ -36,17 +36,20 @@ namespace Milionaire
 
             foreach (Button b in answerButtons)
             {
+                b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
                 b.Click += (sender, e) =>
                     {
                         foreach (Button but in answerButtons)
                         {
                             but.Background = new SolidColorBrush(Windows.UI.Colors.Black);
                             but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+                            //but.Background.Opacity = 0;
                             but.FontStyle = Windows.UI.Text.FontStyle.Normal;
                         }
 
                         b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
                         b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+                        //b.Opacity = 1;
                         b.FontStyle = Windows.UI.Text.FontStyle.Italic;
                     };
             };
@@ -91,6 +94,7 @@ namespace Milionaire
             //hardQuestions.Add(new Question { QuestionName = "", RightAnswer = "", WrongAnswer1 = "", WrongAnswer2 = "", WrongAnswer3 = "" });
 
             Question question = easyQuestions[(new Random()).Next(easyQuestions.Count - 1)];
+            easyQuestions.Remove(question);
             questionText.Text = question.QuestionName;
             //Нужен рандом
             answerButton1.Content = question.RightAnswer;
@@ -117,7 +121,7 @@ namespace Milionaire
             Brush orange = new SolidColorBrush(Windows.UI.Colors.Orange);
             foreach (Button b in answerButtons)
             {
-                if (b.FontStyle == Windows.UI.Text.FontStyle.Italic)
+                if (b.Background.Opacity == 1)
                 {
                     if (b.Content.ToString() == correctAnswer)
                     {
@@ -145,7 +149,7 @@ namespace Milionaire
             while (count < 2)
             {
                 int rnd = new Random().Next(3);
-                if (answerButtons[rnd].Content != correctAnswer && answerButtons[rnd].IsEnabled)
+                if (answerButtons[rnd].Content.ToString() != correctAnswer && answerButtons[rnd].IsEnabled)
                 {
                     answerButtons[rnd].IsEnabled = false;
                     count++;
