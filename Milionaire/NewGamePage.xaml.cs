@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using System.Threading;
+using Windows.UI.Xaml.Media.Imaging;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -48,14 +49,14 @@ namespace Milionaire
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                     b.Background.Opacity = 1;
 
-                    //Проверка правильности
+                    //Проверка правильности НЕ РАБОТАЕТ!!!
                     if (b.Background.Opacity == 1)
                     {
                         //Правильный ответ
                         if (b.Content.ToString() == correctAnswer)
                         {
                             b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                            
+
                             Sleep(3000);
                             FillFeilds(1);
                         }
@@ -120,6 +121,56 @@ namespace Milionaire
             correctAnswer = currentQuestion.RightAnswer;
         }
 
+        //private void Clicks()
+        //{
+        //    foreach (Button b in answerButtons)
+        //    {
+        //        b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
+        //        b.Background.Opacity = 0;
+        //        b.Visibility = Visibility.Visible;
+        //        b.Click += (sender, e) =>
+        //        {
+        //            //b.ClickMode = ClickMode.Press;
+        //            //foreach (Button but in answerButtons)
+        //            //{
+        //            //    but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+        //            //    but.Background.Opacity = 0;
+        //            //}
+        //            b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+        //            b.Background.Opacity = 1;
+                    
+        //            //if (b.Background.Opacity == 1)
+        //            //{
+        //            //    if (b.Content.ToString() == correctAnswer)
+        //            //    {
+        //            //        b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                            
+        //            //        Sleep(5000);
+        //            //        FillFeilds(1);
+        //            //    }
+        //            //    else
+        //            //    {
+        //            //        b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+        //            //        foreach (Button b1 in answerButtons)
+        //            //        {
+        //            //            if (b1.Content.ToString() == correctAnswer)
+        //            //            {
+        //            //                b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+        //            //            }
+        //            //        }
+        //            //    }
+        //            //}
+        //        };
+        //    }
+        //}
+
+        private void Sleep(int ms)
+        {
+            DateTime now = DateTime.Now;
+            DateTime endOfSleep = now.AddMilliseconds(ms);
+            while (DateTime.Now < endOfSleep) { }
+        }
+
         private void _5050button1_Click(object sender, RoutedEventArgs e)
         {
             int count = 0;
@@ -133,58 +184,14 @@ namespace Milionaire
                     count++;
                 }
             }
+            _5050button1.IsEnabled = false;
+            _5050button.Visibility = Visibility.Collapsed;
+            _5050XImage.Visibility = Visibility.Visible;
         }
 
-        private void Clicks()
+        private void ringButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Button b in answerButtons)
-            {
-                b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
-                b.Background.Opacity = 0;
-                b.Visibility = Visibility.Visible;
-                b.Click += (sender, e) =>
-                {
-                    //b.ClickMode = ClickMode.Press;
-                    //foreach (Button but in answerButtons)
-                    //{
-                    //    but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
-                    //    but.Background.Opacity = 0;
-                    //}
-                    b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-                    b.Background.Opacity = 1;
-                    
-                    //if (b.Background.Opacity == 1)
-                    //{
-                    //    if (b.Content.ToString() == correctAnswer)
-                    //    {
-                    //        b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                            
-                    //        Sleep(5000);
-                    //        FillFeilds(1);
-                    //    }
-                    //    else
-                    //    {
-                    //        b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-                    //        foreach (Button b1 in answerButtons)
-                    //        {
-                    //            if (b1.Content.ToString() == correctAnswer)
-                    //            {
-                    //                b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                    //            }
-                    //        }
-                    //    }
-                    //}
-                };
-            }
-        }
 
-
-
-        private void Sleep(int ms)
-        {
-            DateTime now = DateTime.Now;
-            DateTime endOfSleep = now.AddMilliseconds(ms);
-            while (DateTime.Now < endOfSleep) { }
         }
     }
 }
