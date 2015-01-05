@@ -27,6 +27,8 @@ namespace Milionaire
     {
         List<Button> answerButtons = new List<Button>();
         List<Question> questionList;
+        int currentDifficulty;
+
         string correctAnswer;
 
         public NewgamePage()
@@ -193,7 +195,41 @@ namespace Milionaire
 
         private void ringButton_Click(object sender, RoutedEventArgs e)
         {
-
+            phoneDialog.Visibility = Visibility.Visible;
+            Sleep(1000);
+            if (currentDifficulty != 3)
+            {
+                phoneDialog.Text = "Друг думает...";
+                Sleep(2000);
+                if (currentDifficulty == 1)
+                {
+                    phoneDialog.Text = "Я уверен, что верный ответ: " + correctAnswer;
+                }
+                else 
+                {
+                    string answ;
+                    int rd = new Random().Next(100);
+                    if (rd < 60)
+                        answ = correctAnswer;
+                    else
+                    {
+                        answ = answerButtons[(new Random()).Next(4)].Content.ToString();
+                    }
+                    phoneDialog.Text = "Скорее всего, верный ответ: " + answ;
+                }
+            }
+            else 
+            {
+                int rd = new Random().Next(100);
+                if (rd < 80)
+                {
+                    phoneDialog.Text = "Не уверен. Наверное, ответ: " + answerButtons[(new Random()).Next(4)].Content.ToString();
+                }
+                else phoneDialog.Text = "Друг не поднимает трубку";
+            }
+            ringButton.IsEnabled = false;
+            ringbutton.Visibility = Visibility.Collapsed;
+            ringbuttonX.Visibility = Visibility.Visible;
         }
     }
 }
