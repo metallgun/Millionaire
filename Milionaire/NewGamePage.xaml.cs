@@ -41,10 +41,12 @@ namespace Milionaire
                         {
                             but.Background = new SolidColorBrush(Windows.UI.Colors.Black);
                             but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+                            but.FontStyle = Windows.UI.Text.FontStyle.Normal;
                         }
 
                         b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
                         b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+                        b.FontStyle = Windows.UI.Text.FontStyle.Italic;
                     };
             }
         }
@@ -61,29 +63,33 @@ namespace Milionaire
             //scoreText.Text = "Очки - "+pc.Score.ToString();
         }
 
-        //private void answerButton1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    foreach (Button b in answerButtons)
-        //    {
-        //        b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-        //        b.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
-        //    }
-
-        //    answerButton1.Background = new SolidColorBrush(Windows.UI.Colors.Yellow);
-        //    answerButton1.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-        //}
-
-        //public void ChooseButton(Button b)
-        //{
-        //    foreach (Button but in answerButtons)
-        //    {
-        //        but.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-        //        but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
-        //    }
-
-        //    b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
-        //    b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-        //}
+        private void continueButton_Click(object sender, RoutedEventArgs e)
+        {
+            string correctAnswer = "6";
+            Brush orange = new SolidColorBrush(Windows.UI.Colors.Orange);
+            foreach (Button b in answerButtons)
+            {
+                if (b.FontStyle == Windows.UI.Text.FontStyle.Italic)
+                {
+                    if (b.Content.ToString() == correctAnswer)
+                    {
+                        b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                    }
+                    else
+                    {
+                        b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                        foreach (Button b1 in answerButtons)
+                        {
+                            if (b1.Content.ToString() == correctAnswer)
+                            {
+                                b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                            }
+                        }
+                    }
+                }
+            
+            }
+        }
     }
 }
 
