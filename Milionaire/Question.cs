@@ -14,17 +14,6 @@ namespace Milionaire
         public string WrongAnswer2 { get; set; }
         public string WrongAnswer3 { get; set; }
         public string RightAnswer { get; set; }
-        //public static List<Question> _QuestionList;
-
-        //public Question()
-        //{
-        //    this.QuestionName = String.Empty;
-        //    this.WrongAnswer1 = String.Empty;
-        //    this.WrongAnswer2 = String.Empty;
-        //    this.WrongAnswer3 = String.Empty;
-        //    this.Difficulty = 0;
-        //    //PopulateQuestionList();
-        //}
 
         public static void PopulateQuestionList(List<Question> _QuestionList)
         {
