@@ -37,20 +37,22 @@ namespace Milionaire
             foreach (Button b in answerButtons)
             {
                 b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
+                b.Background.Opacity = 0;
+                b.Visibility = Visibility.Visible;
                 b.Click += (sender, e) =>
                     {
                         foreach (Button but in answerButtons)
                         {
-                            but.Background = new SolidColorBrush(Windows.UI.Colors.Black);
+                            //but.Background = new SolidColorBrush(Windows.UI.Colors.Black);
                             but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
-                            //but.Background.Opacity = 0;
-                            but.FontStyle = Windows.UI.Text.FontStyle.Normal;
+                            but.Background.Opacity = 0;
+                            //but.FontStyle = Windows.UI.Text.FontStyle.Normal;
                         }
 
-                        b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
+                        //b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
                         b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-                        //b.Opacity = 1;
-                        b.FontStyle = Windows.UI.Text.FontStyle.Italic;
+                        b.Background.Opacity = 1;
+                        //b.FontStyle = Windows.UI.Text.FontStyle.Italic;
                     };
             };
 
@@ -151,7 +153,7 @@ namespace Milionaire
                 int rnd = new Random().Next(3);
                 if (answerButtons[rnd].Content.ToString() != correctAnswer && answerButtons[rnd].IsEnabled)
                 {
-                    answerButtons[rnd].IsEnabled = false;
+                    answerButtons[rnd].Visibility = Visibility.Collapsed;
                     count++;
                 }
             }
