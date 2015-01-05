@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Milionaire
 {
-    class Player
+    public class Player
     {
         public string Name { get; set; }
-
         public int Score { get; set; }
     }
 }

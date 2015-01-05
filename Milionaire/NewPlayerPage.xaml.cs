@@ -58,7 +58,7 @@ namespace Milionaire
             //};
             Player pc = new Player()
             {
-                Name =playerNameTextbox.Text,
+                Name = playerNameTextbox.Text,
                 Score = 0
             };
 
