@@ -14,19 +14,8 @@ namespace Milionaire
         public string WrongAnswer2 { get; set; }
         public string WrongAnswer3 { get; set; }
         public string RightAnswer { get; set; }
-        public static List<Question> _QuestionList;
 
-        public Question()
-        {
-            this.QuestionName = String.Empty;
-            this.WrongAnswer1 = String.Empty;
-            this.WrongAnswer2 = String.Empty;
-            this.WrongAnswer3 = String.Empty;
-            this.Difficulty = 0;
-            PopulateQuestionList();
-        }
-
-        private void PopulateQuestionList()
+        private void PopulateQuestionList(List<Question> _QuestionList)
         {
             _QuestionList.Add(new Question { QuestionName = "Что растёт в огороде?", RightAnswer = "Лук", WrongAnswer1 = "Пистолет", WrongAnswer2 = "Пулемёт", WrongAnswer3 = "Ракета СС-20", Difficulty = 1});
             _QuestionList.Add(new Question { QuestionName = "Как порой называют деспотичную женщину?", RightAnswer = "Жандарм в юбке", WrongAnswer1 = "Майор в декольте", WrongAnswer2 = "Ефрейтор в платье", WrongAnswer3 = "Сержант в бигуди", Difficulty = 1 });
