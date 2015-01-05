@@ -56,13 +56,14 @@ namespace Milionaire
             //{
             //    PlayerName = playerNameTextbox.Text
             //};
-            Player pc = new Player()
+            var pc = new Player()
             {
                 Name = playerNameTextbox.Text,
                 Score = 0
             };
 
-            if (checkdata == true) Frame.Navigate(typeof(NewgamePage), pc);
+            if (checkdata == true) 
+                Frame.Navigate(typeof(NewgamePage), pc);
         }
 
         private async void ShowMessagebox()

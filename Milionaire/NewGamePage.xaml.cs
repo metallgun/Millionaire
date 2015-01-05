@@ -23,7 +23,6 @@ namespace Milionaire
     public sealed partial class NewgamePage : Page
     {
         List<Button> answerButtons = new List<Button>();
-        List<Question> easyQuestions, mediumQuestions, hardQuestions;
 
         public NewgamePage()
         {
@@ -54,9 +53,7 @@ namespace Milionaire
                         b.Background.Opacity = 1;
                         //b.FontStyle = Windows.UI.Text.FontStyle.Italic;
                     };
-            };
-            //Легкие
-
+            }
         }
 
         /// <summary>
