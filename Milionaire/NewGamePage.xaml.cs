@@ -47,8 +47,32 @@ namespace Milionaire
                 {
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                     b.Background.Opacity = 1;
+
+                    //Проверка правильности
+                    if (b.Background.Opacity == 1)
+                    {
+                        //Правильный ответ
+                        if (b.Content.ToString() == correctAnswer)
+                        {
+                            b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                            
+                            Sleep(3000);
+                            FillFeilds(1);
+                        }
+                        //Неправильный ответ
+                        else
+                        {
+                            b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                            foreach (Button b1 in answerButtons)
+                            {
+                                if (b1.Content.ToString() == correctAnswer)
+                                {
+                                    b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                                }
+                            }
+                        }
+                    }
                 };
-                //При изменении (сразу после клика) происходит обраобтка - проверка на правильность
             }
 
             FillFeilds(1);
