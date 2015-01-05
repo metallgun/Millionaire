@@ -96,6 +96,8 @@ namespace Milionaire
         {
             foreach (Button b in answerButtons)
             {
+                b.IsEnabled = true;
+                b.Visibility = Visibility.Visible;
                 b.Content = null;
                 b.Background.Opacity = 0;
                 b.Foreground = new SolidColorBrush(Windows.UI.Colors.White);

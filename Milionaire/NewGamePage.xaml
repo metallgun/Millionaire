@@ -21,12 +21,12 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="questionText" Grid.Row="1" HorizontalAlignment="Center" Margin="20,31,19,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="361"/>
+        <TextBlock x:Name="questionText" Grid.Row="1" HorizontalAlignment="Center" Margin="20,10,19,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="23" Width="361" />
         <Button x:Name="answerButton1" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,1,0,0" VerticalAlignment="Top" Width="361" />
         <Button x:Name="answerButton2" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,57,0,0" VerticalAlignment="Top" Width="361"/>
         <Button x:Name="answerButton3" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,113,0,0" VerticalAlignment="Top" Width="361"/>
         <Button x:Name="answerButton4" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,169,0,0" VerticalAlignment="Top" Width="361"/>
-        <Image HorizontalAlignment="Left" Height="59" Margin="321,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="59" Source="Assets/optionslogo.png"/>
+        <Image HorizontalAlignment="Right" Height="40" Margin="0,0,20,0" VerticalAlignment="Top" Width="40" Source="Assets/optionslogo.png"/>
         <Image x:Name="_5050button" HorizontalAlignment="Left" Height="60" Margin="19,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Source="Assets/5050.png" Stretch="Fill"/>
         <Image x:Name="ringbutton" HorizontalAlignment="Center" Height="60" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Source="Assets/ring.png" Stretch="Fill"/>
         <Image x:Name="audbutton" HorizontalAlignment="Left" Height="60" Margin="280,10,0,-10" Grid.Row="3" VerticalAlignment="Top" Width="100" Stretch="Fill" Source="Assets/aud.png"/>
