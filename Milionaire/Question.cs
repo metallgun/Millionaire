@@ -14,19 +14,19 @@ namespace Milionaire
         public string WrongAnswer2 { get; set; }
         public string WrongAnswer3 { get; set; }
         public string RightAnswer { get; set; }
-        public static List<Question> _QuestionList;
+        //public static List<Question> _QuestionList;
 
-        public Question()
-        {
-            this.QuestionName = String.Empty;
-            this.WrongAnswer1 = String.Empty;
-            this.WrongAnswer2 = String.Empty;
-            this.WrongAnswer3 = String.Empty;
-            this.Difficulty = 0;
-            PopulateQuestionList();
-        }
+        //public Question()
+        //{
+        //    this.QuestionName = String.Empty;
+        //    this.WrongAnswer1 = String.Empty;
+        //    this.WrongAnswer2 = String.Empty;
+        //    this.WrongAnswer3 = String.Empty;
+        //    this.Difficulty = 0;
+        //    //PopulateQuestionList();
+        //}
 
-        private void PopulateQuestionList()
+        public static void PopulateQuestionList(List<Question> _QuestionList)
         {
             _QuestionList.Add(new Question { QuestionName = "Что растёт в огороде?", RightAnswer = "Лук", WrongAnswer1 = "Пистолет", WrongAnswer2 = "Пулемёт", WrongAnswer3 = "Ракета СС-20", Difficulty = 1});
             _QuestionList.Add(new Question { QuestionName = "Как порой называют деспотичную женщину?", RightAnswer = "Жандарм в юбке", WrongAnswer1 = "Майор в декольте", WrongAnswer2 = "Ефрейтор в платье", WrongAnswer3 = "Сержант в бигуди", Difficulty = 1 });
@@ -34,7 +34,7 @@ namespace Milionaire
             _QuestionList.Add(new Question { QuestionName = "Что нужно для детской игры в классики?", RightAnswer = "Клетки на асфальте", WrongAnswer1 = "Боксерский ринг", WrongAnswer2 = "Партитура", WrongAnswer3 = "Ракетка", Difficulty = 1 });
             _QuestionList.Add(new Question { QuestionName = "Что группа ЛЮБЭ требовала от Америки, призывая ее не валять дурака?", RightAnswer = "Отдать Аляску", WrongAnswer1 = "Забыть о гамбургерах", WrongAnswer2 = "Освободить индейцев", WrongAnswer3 = "Закрыть Голливуд", Difficulty = 1 });
             _QuestionList.Add(new Question { QuestionName = "Какая фраза чаще всего звучит на аукционе?", RightAnswer = "Кто больше?", WrongAnswer1 = "Кто сильнее?", WrongAnswer2 = "Кто хитрее?", WrongAnswer3 = "Продано", Difficulty = 1 });
-            _QuestionList.Add(new Question { QuestionName = "Сколько суток составляют високосный год?", RightAnswer = "366", WrongAnswer1 = "365", WrongAnswer2 = "364", WrongAnswer3 = "356", Difficulty = 1});
+            _QuestionList.Add(new Question { QuestionName = "Сколько суток составляют високосный год?", RightAnswer = "366", WrongAnswer1 = "365", WrongAnswer2 = "364", WrongAnswer3 = "356", Difficulty = 1 });
             _QuestionList.Add(new Question { QuestionName = "Что Вячеслав Добрынин умолял не сыпать ему на рану в одной из песен", RightAnswer = "Соль", WrongAnswer1 = "Перец", WrongAnswer2 = "Сахар", WrongAnswer3 = "Стрептоцид", Difficulty = 1 });
             _QuestionList.Add(new Question { QuestionName = "Что царь Гордий завязал так, что Александру Македонскому пришлось взяться за меч?", RightAnswer = "Узел", WrongAnswer1 = "Шнурки", WrongAnswer2 = "Бант", WrongAnswer3 = "Беседа", Difficulty = 1 });
             _QuestionList.Add(new Question { QuestionName = "В каком из этих фильмов главное действующее лицо В.И.Ленин", RightAnswer = "Человек с ружьем", WrongAnswer1 = "Человек-невидимка", WrongAnswer2 = "Человек-амфибия", WrongAnswer3 = "По кличке зверь", Difficulty = 1 });
@@ -51,7 +51,7 @@ namespace Milionaire
             _QuestionList.Add(new Question { QuestionName = "В какое море впадает река Урал?", RightAnswer = "Каспийское", WrongAnswer1 = "Азовское", WrongAnswer2 = "Чёрное", WrongAnswer3 = "Средиземное", Difficulty = 2 });
             _QuestionList.Add(new Question { QuestionName = "На что кладут руку члены английского общества лысых во время присяги?", RightAnswer = "Бильярдный шар", WrongAnswer1 = "Баскетбольный мяч", WrongAnswer2 = "Апельсин", WrongAnswer3 = "Кокосовый орех", Difficulty = 2 });
             _QuestionList.Add(new Question { QuestionName = "Как назывался каменный монолит, на котором установлен памятник Петру I в Санкт-Петербурге?", RightAnswer = "Гром-камень", WrongAnswer1 = "Дом-камень", WrongAnswer2 = "Гора-камень", WrongAnswer3 = "Разрыв-камень", Difficulty = 2 });
-            _QuestionList.Add(new Question { QuestionName = "Как Пётр Ильич Чайковский назвал свою серенаду для скрипки с оркестром си-бемоль минор?", RightAnswer = "Меланхолическая", WrongAnswer1 = "Флегматическая", WrongAnswer2 = "Холерическая", WrongAnswer3 = "Сангвиническая", Difficulty = 3});
+            _QuestionList.Add(new Question { QuestionName = "Как Пётр Ильич Чайковский назвал свою серенаду для скрипки с оркестром си-бемоль минор?", RightAnswer = "Меланхолическая", WrongAnswer1 = "Флегматическая", WrongAnswer2 = "Холерическая", WrongAnswer3 = "Сангвиническая", Difficulty = 3 });
             _QuestionList.Add(new Question { QuestionName = "Какое сравнение не использовал Пушкин, противопоставляя Онегина и Ленского?", RightAnswer = "Земля и небо", WrongAnswer1 = "Волна и камень", WrongAnswer2 = "Стихи и проза", WrongAnswer3 = "Лед и пламень", Difficulty = 3 });
             _QuestionList.Add(new Question { QuestionName = "От какой империи Россия унаследовала двуглавого орла на гербе?", RightAnswer = "Византийская", WrongAnswer1 = "Римская", WrongAnswer2 = "Османская", WrongAnswer3 = "Китайская", Difficulty = 3 });
             _QuestionList.Add(new Question { QuestionName = "Команда какой страны стала победительницей первого чемпионата мира по футболу?", RightAnswer = "Уругвай", WrongAnswer1 = "Ямайка", WrongAnswer2 = "Бразилия", WrongAnswer3 = "Аргентина", Difficulty = 3 });

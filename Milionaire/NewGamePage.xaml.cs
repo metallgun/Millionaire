@@ -23,10 +23,17 @@ namespace Milionaire
     public sealed partial class NewgamePage : Page
     {
         List<Button> answerButtons = new List<Button>();
+        List<Question> questionList;
+        Question currentQuestion;
 
         public NewgamePage()
         {
             this.InitializeComponent();
+            questionList = new List<Question>();
+            Question.PopulateQuestionList(questionList);
+
+            currentQuestion = new Question();
+           // currentQuestion = 
 
             answerButtons.Add(answerButton1);
             answerButtons.Add(answerButton2);
