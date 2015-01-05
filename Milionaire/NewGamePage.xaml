@@ -21,7 +21,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="questionText" Grid.Row="1" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="361" />
+        <TextBlock x:Name="questionText" Grid.Row="1" HorizontalAlignment="Center" Margin="20,31,19,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="361"/>
         <Button x:Name="answerButton1" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,1,0,0" VerticalAlignment="Top" Width="361" />
         <Button x:Name="answerButton2" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,57,0,0" VerticalAlignment="Top" Width="361"/>
         <Button x:Name="answerButton3" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,113,0,0" VerticalAlignment="Top" Width="361"/>
