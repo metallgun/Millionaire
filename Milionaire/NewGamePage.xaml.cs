@@ -63,9 +63,9 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //var pc = (Player)e.Parameter;
-            //nameText.Text = "Имя - "+pc.Name;
-            //scoreText.Text = "Очки - "+pc.Score.ToString();
+            var pc = (Player)e.Parameter;
+            nameText.Text = pc.Name;
+            scoreText.Text = pc.Score.ToString();
         }
 
         private void continueButton_Click(object sender, RoutedEventArgs e)
