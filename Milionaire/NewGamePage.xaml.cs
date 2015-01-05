@@ -33,7 +33,7 @@ namespace Milionaire
             Question.PopulateQuestionList(questionList);
 
             currentQuestion = new Question();
-           // currentQuestion = 
+            currentQuestion = questionList[(new Random()).Next(questionList.Count - 1)];
 
             answerButtons.Add(answerButton1);
             answerButtons.Add(answerButton2);
@@ -49,16 +49,12 @@ namespace Milionaire
                     {
                         foreach (Button but in answerButtons)
                         {
-                            //but.Background = new SolidColorBrush(Windows.UI.Colors.Black);
                             but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
                             but.Background.Opacity = 0;
-                            //but.FontStyle = Windows.UI.Text.FontStyle.Normal;
                         }
 
-                        //b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
                         b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                         b.Background.Opacity = 1;
-                        //b.FontStyle = Windows.UI.Text.FontStyle.Italic;
                     };
             }
         }
