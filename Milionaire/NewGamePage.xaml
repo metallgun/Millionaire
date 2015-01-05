@@ -9,13 +9,26 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock x:Name="questionText" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="361" Text="Сколько раз по восточному календарю выпадет год Лошади?"/>
-        <Button x:Name="answerButton1" Content="3" HorizontalAlignment="Left" Margin="19,221,0,332" VerticalAlignment="Stretch" Width="361" />
-        <Button x:Name="answerButton2" Content="4" HorizontalAlignment="Left" Height="87" Margin="19,294,0,0" VerticalAlignment="Top" Width="361"/>
-        <Button x:Name="answerButton3" Content="5" HorizontalAlignment="Left" Height="87" Margin="19,367,0,0" VerticalAlignment="Top" Width="361"/>
-        <Button x:Name="answerButton4" Content="6" HorizontalAlignment="Left" Height="87" Margin="19,440,0,0" VerticalAlignment="Top" Width="361"/>
-        <Button x:Name="continueButton" Content="Продолжить" HorizontalAlignment="Left" Height="87" Margin="19,553,0,0" VerticalAlignment="Top" Width="361" Click="continueButton_Click"/>
-
-
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF0949A4" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="questionText" Grid.Row="1" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="361" />
+        <Button x:Name="answerButton1" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,1,0,0" VerticalAlignment="Top" Width="361" />
+        <Button x:Name="answerButton2" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="20,57,0,0" VerticalAlignment="Top" Width="361"/>
+        <Button x:Name="answerButton3" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,113,0,0" VerticalAlignment="Top" Width="361"/>
+        <Button x:Name="answerButton4" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,169,0,0" VerticalAlignment="Top" Width="361"/>
+        <Button x:Name="optionsButton" HorizontalAlignment="Left" Height="59" Margin="271,-10,0,0" VerticalAlignment="Top" Width="110" Grid.Row="0" />
+        <Button x:Name="_50/50Button" Grid.Row="3" HorizontalAlignment="Left" Height="59" Margin="20,0,0,0" VerticalAlignment="Top" Width="74"  />
+        <Button x:Name="ringButton" Grid.Row="3" HorizontalAlignment="Center" Height="59" Margin="150,0,150,0" VerticalAlignment="Top" Width="74" />
+        <Button x:Name="audienceButton" Grid.Row="3" HorizontalAlignment="Right" Height="59" Margin="0,0,20,0" VerticalAlignment="Top" Width="74" />
     </Grid>
 </Page>

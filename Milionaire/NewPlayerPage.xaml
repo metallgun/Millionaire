@@ -16,7 +16,6 @@
         <TextBlock x:Name="playerNameText" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Введите свое имя" VerticalAlignment="Top" FontSize="24"/>
         <TextBox x:Name="playerNameTextbox" HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="210" PlaceholderText=""/>
         <HyperlinkButton x:Name="continueButton" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Играть" HorizontalAlignment="Center" Margin="128,0,129,461" VerticalAlignment="Bottom" FontWeight="Bold" Click="continueButton_Click" Width="143"/>
-        <TextBlock x:Name="testText" HorizontalAlignment="Left" Margin="155,361,0,0" TextWrapping="Wrap" Text="Проверочка для Github" VerticalAlignment="Top" FontSize="24"/>
 
     </Grid>
 </Page>
