@@ -28,12 +28,19 @@ namespace Milionaire
         List<Button> answerButtons = new List<Button>();
         List<Question> questionList;
         int currentDifficulty;
+        Player player;
+        int numberofQuetions;
+
+        int numberofquestions;
 
         string correctAnswer;
 
         public NewgamePage()
         {
             this.InitializeComponent();
+
+            phoneDialog.Visibility = Visibility.Collapsed;
+
             questionList = new List<Question>();
             Question.PopulateQuestionList(questionList);
             answerButtons.Add(answerButton1);
@@ -58,9 +65,9 @@ namespace Milionaire
                         if (b.Content.ToString() == correctAnswer)
                         {
                             b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-
                             Sleep(3000);
                             FillFeilds(1);
+                            AddingScore();
                         }
                         //Неправильный ответ
                         else
@@ -77,7 +84,6 @@ namespace Milionaire
                     }
                 };
             }
-
             FillFeilds(1);
         }
 
@@ -88,14 +94,31 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var pc = (Player)e.Parameter;
-            nameText.Text = pc.Name;
-            scoreText.Text = pc.Score.ToString();
+            player = (Player)e.Parameter;
+            nameText.Text = player.Name;
+            scoreText.Text = player.Score.ToString();
         }
 
         //Заполнение полей
+
+        // 5 easy 5 medium 4 hard 1 million
         private void FillFeilds(int difficulty)
         {
+            if (numberofquestions >= 0 && numberofquestions <= 4) difficulty = 1;
+            if (numberofquestions >= 5 && numberofquestions<=9) difficulty = 2;
+            if (numberofquestions >= 10 && numberofquestions <= 14) difficulty = 3;
+            if (numberofquestions == 15)
+            {
+                difficulty = 4;
+                ringbutton.Visibility = Visibility.Collapsed;
+                ringbuttonX.Visibility = Visibility.Visible;
+                ringButton.Visibility = Visibility.Collapsed;
+                _5050button.Visibility = Visibility.Collapsed;
+                _5050button1.Visibility = Visibility.Collapsed;
+                _5050XImage.Visibility = Visibility.Visible;
+                audbutton.Visibility = Visibility.Collapsed;
+            }
+
             foreach (Button b in answerButtons)
             {
                 b.IsEnabled = true;
@@ -124,6 +147,22 @@ namespace Milionaire
             }
             correctAnswer = currentQuestion.RightAnswer;
             currentDifficulty = currentQuestion.Difficulty;
+            numberofquestions += 1;
+        }
+
+        private void AddingScore()
+        {
+            if (player.Score == 0)
+                player.Score = 100;
+            else if (player.Score >= 100 && player.Score < 300)
+                player.Score += 100;
+            else if (player.Score == 300)
+                player.Score = 500;
+            else if ((player.Score >= 500 && player.Score < 64000) || (player.Score >= 125000 && player.Score < 1000000))
+                player.Score = player.Score * 2;
+            else player.Score = 125000;
+            scoreText.Text = player.Score.ToString();
+
         }
 
         //private void Clicks()
@@ -138,7 +177,7 @@ namespace Milionaire
         //            //b.ClickMode = ClickMode.Press;
         //            //foreach (Button but in answerButtons)
         //            //{
-        //            //    but.Foreground = new SolidColorjrBrush(Windows.UI.Colors.White);
+        //            //    but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
         //            //    but.Background.Opacity = 0;
         //            //}
         //            b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
