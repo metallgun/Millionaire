@@ -123,6 +123,7 @@ namespace Milionaire
                 }
             }
             correctAnswer = currentQuestion.RightAnswer;
+            currentDifficulty = currentQuestion.Difficulty;
         }
 
         //private void Clicks()
