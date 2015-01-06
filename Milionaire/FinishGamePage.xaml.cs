@@ -20,9 +20,9 @@ namespace Milionaire
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class RecordPage : Page
+    public sealed partial class FinishGamePage : Page
     {
-        public RecordPage()
+        public FinishGamePage()
         {
             this.InitializeComponent();
         }
@@ -36,14 +36,9 @@ namespace Milionaire
         {
         }
 
-        private void backButton_Click(object sender, RoutedEventArgs e)
+        private void recordsButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.GoBack();
-        }
-
-        private void deleteButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            Frame.Navigate(typeof(RecordPage));
         }
     }
 }
