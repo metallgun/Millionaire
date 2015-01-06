@@ -67,8 +67,8 @@ namespace Milionaire
                         {
                             b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                             //Sleep(3000);
-                            FillFeilds(1);
                             AddingScore();
+                            FillFeilds(1);
                             if (checkring == true) phoneDialog.Visibility = Visibility.Collapsed;
                         }
                         //Неправильный ответ
@@ -106,8 +106,9 @@ namespace Milionaire
         // 5 easy 5 medium 4 hard 1 million
         private void FillFeilds(int difficulty)
         {
+            if (numberofquestions == 0) numberofquestions = Container.Quest;
             if (numberofquestions >= 0 && numberofquestions <= 4) difficulty = 1;
-            if (numberofquestions >= 5 && numberofquestions<= 9) difficulty = 2;
+            if (numberofquestions >= 5 && numberofquestions <= 9) difficulty = 2;
             if (numberofquestions >= 10 && numberofquestions <= 13) difficulty = 3;
             if (numberofquestions == 14)
             {
@@ -167,11 +168,18 @@ namespace Milionaire
             else player.Score = 125000;
             scoreText.Text = player.Score.ToString();
             if (player.Score == 1000 || player.Score == 32000)
+            {
+                Container.Score = player.Score;
+                Container.Quest = numberofquestions;
                 Frame.Navigate(typeof(ProgressPage), player.Score);
+            }
             if (player.Score == 1000000)
             {
-                await WriteScoreToFile();
+                Container.Score = player.Score;
+                Container.Quest = numberofquestions;
                 Frame.Navigate(typeof(FinishGamePage), player.Score);
+                await WriteScoreToFile();
+                
             }
 
         }
@@ -186,8 +194,8 @@ namespace Milionaire
             //создаем папку
             var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
             //создаем файл
-            //string filename = player.Name + "File.txt";
-            var file = await playerFolder.CreateFileAsync("playerFile", CreationCollisionOption.ReplaceExisting);
+            string filename = player.Name + "File.txt";
+            var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
 
             //пишем очки
             using (var s = await file.OpenStreamForWriteAsync())
