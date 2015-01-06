@@ -10,7 +10,10 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:/Assets/640x400.jpg" Stretch="Fill"/>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF0949A4" Offset="1"/>
+            </LinearGradientBrush>
         </Grid.Background>
         <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Кто хочет стать миллионером?" VerticalAlignment="Top" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False"/>
         <Button x:Name="buttonRecords" Content="Рекорды" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFC36868" Background="#FFC93333" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False"/>
