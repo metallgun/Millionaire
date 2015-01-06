@@ -320,6 +320,11 @@ namespace Milionaire
                 for (int j = 0; j < wrongPerc.Count() - 1; j++) before1 += wrongPerc[j];
                 wrongPerc[i] = 100 - before1;
         }
+
+        private void moneyButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Забрать деньги
+        }
     }
 }
 
