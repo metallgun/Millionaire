@@ -248,8 +248,17 @@ namespace Milionaire
         private void ringButton_Click(object sender, RoutedEventArgs e)
         {
             phoneDialog.Visibility = Visibility.Visible;
-            //phoneDialog.Opacity = 1;
             Sleep(1000);
+            string[] answers = new string[4];
+            int count = 0;
+            for (int i = 0; i < answerButtons.Count; i++)
+            {
+                if (answerButtons[i].IsEnabled) 
+                {
+                    count++;
+                    answers[i] = answerButtons[i].Content.ToString();
+                }
+            }
             if (currentDifficulty != 3)
             {
                 phoneDialog.Text = "Друг думает...";
@@ -266,7 +275,7 @@ namespace Milionaire
                         answ = correctAnswer;
                     else
                     {
-                        answ = answerButtons[(new Random()).Next(4)].Content.ToString();
+                        answ = answers[(new Random()).Next(count)];
                     }
                     phoneDialog.Text = "Скорее всего, верный ответ: " + answ;
                 }
@@ -276,7 +285,7 @@ namespace Milionaire
                 int rd = new Random().Next(100);
                 if (rd < 80)
                 {
-                    phoneDialog.Text = "Не уверен. Наверное, ответ: " + answerButtons[(new Random()).Next(4)].Content.ToString();
+                    phoneDialog.Text = "Не уверен. Наверное, ответ: " + answers[(new Random()).Next(count)];
                 }
                 else phoneDialog.Text = "Друг не поднимает трубку";
             }

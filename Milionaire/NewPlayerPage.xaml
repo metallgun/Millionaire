@@ -18,7 +18,7 @@
         <HyperlinkButton x:Name="returnButton"  FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Назад" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" FontWeight="Bold" Click="returnButton_Click" Width="361" Height="70" Background="{x:Null}" Foreground="White" BorderBrush="White" RequestedTheme="Light" BorderThickness="2.5"/>
         <TextBlock x:Name="playerNameText" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Введите свое имя" VerticalAlignment="Top" FontSize="24"/>
         <TextBox x:Name="playerNameTextbox" HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="210" PlaceholderText=""/>
-        <HyperlinkButton x:Name="continueButton" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Играть" HorizontalAlignment="Center" Margin="0,0,0,450" VerticalAlignment="Bottom" FontWeight="Bold" Click="returnButton_Click" Width="361" Height="70" Background="{x:Null}" Foreground="White" BorderBrush="White" RequestedTheme="Light" BorderThickness="2.5"/>
+        <HyperlinkButton x:Name="continueButton" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Играть" HorizontalAlignment="Center" Margin="0,0,0,450" VerticalAlignment="Bottom" FontWeight="Bold" Click="continueButton_Click" Width="361" Height="70" Background="{x:Null}" Foreground="White" BorderBrush="White" RequestedTheme="Light" BorderThickness="2.5"/>
 
     </Grid>
 </Page>
