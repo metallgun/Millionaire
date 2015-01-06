@@ -16,7 +16,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <TextBlock x:Name="finalPhraseText" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Final phrase goes here" VerticalAlignment="Top" FontSize="36"/>
-        <TextBlock x:Name="scoreText" HorizontalAlignment="Center" Margin="97,210,95,0" TextWrapping="Wrap" Text="Ваш выигрыш равен " VerticalAlignment="Top" FontSize="22"/>
+        <TextBlock x:Name="scoreText" HorizontalAlignment="Center" Margin="71,162,80,0" TextWrapping="Wrap" Text="Ваш выигрыш составил " VerticalAlignment="Top" FontSize="22" Width="249"/>
         <Button x:Name="endButton" Content="В главное меню" HorizontalAlignment="Center" Margin="0,480,0,0" VerticalAlignment="Top" Width="361" Height="70" Click="endButton_Click"/>
         <Button x:Name="recordsButton" Content="Рекорды" HorizontalAlignment="Center" Margin="19.5,400,19.5,0" VerticalAlignment="Top" Width="361" Height="70" Click="recordsButton_Click"/>
     </Grid>
