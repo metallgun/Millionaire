@@ -38,7 +38,7 @@ namespace Milionaire
         {
             int prize = (int)e.Parameter;
             if (prize < 1000000) finalPhraseText.Text = "К сожалению, Вы не выиграли миллион.\nПопробуйте еще раз.";
-            else finalPhraseText.Text = "Поздравляем! Вы стали миллионером!";
+            else finalPhraseText.Text = "Поздравляем!\nВы стали миллионером!";
             scoreText.Text += " " + prize;
         }
 
