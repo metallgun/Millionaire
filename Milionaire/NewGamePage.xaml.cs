@@ -46,36 +46,42 @@ namespace Milionaire
                 b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
                 b.Background.Opacity = 0;
                 b.Visibility = Visibility.Visible;
+
                 b.Click += (sender, e) =>
                 {
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                     b.Background.Opacity = 1;
+                    b.IsEnabled = false;
+                };
 
-                    //Проверка правильности НЕ РАБОТАЕТ!!!
-                    if (b.Background.Opacity == 1)
+                b.IsEnabledChanged += (sender, e) =>
                     {
-                        //Правильный ответ
-                        if (b.Content.ToString() == correctAnswer)
+                        if (!b.IsEnabled) b.IsEnabled = true;
+                        //Проверка правильности НЕ РАБОТАЕТ!!!
+                        if (b.Background.Opacity == 1)
                         {
-                            b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-
-                            Sleep(3000);
-                            FillFeilds(1);
-                        }
-                        //Неправильный ответ
-                        else
-                        {
-                            b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-                            foreach (Button b1 in answerButtons)
+                            //Правильный ответ
+                            if (b.Content.ToString() == correctAnswer)
                             {
-                                if (b1.Content.ToString() == correctAnswer)
+                                b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+
+                                Sleep(3000);
+                                FillFeilds(1);
+                            }
+                            //Неправильный ответ
+                            else
+                            {
+                                b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                                foreach (Button b1 in answerButtons)
                                 {
-                                    b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                                    if (b1.Content.ToString() == correctAnswer)
+                                    {
+                                        b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                                    }
                                 }
                             }
                         }
-                    }
-                };
+                    };
             }
 
             FillFeilds(1);
@@ -197,6 +203,7 @@ namespace Milionaire
         private void ringButton_Click(object sender, RoutedEventArgs e)
         {
             phoneDialog.Visibility = Visibility.Visible;
+            //phoneDialog.Opacity = 1;
             Sleep(1000);
             if (currentDifficulty != 3)
             {
