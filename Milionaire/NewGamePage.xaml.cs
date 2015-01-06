@@ -315,7 +315,7 @@ namespace Milionaire
                 int before = rightPerc;
                 for (int j = 0; j < i; j++) before += wrongPerc[j];
                     wrongPerc[i] = (new Random()).Next((100 - before));
-            }
+            } 
             int before1 = rightPerc;
                 for (int j = 0; j < wrongPerc.Count() - 1; j++) before1 += wrongPerc[j];
                 wrongPerc[i] = 100 - before1;
