@@ -106,7 +106,7 @@ namespace Milionaire
         private void FillFeilds(int difficulty)
         {
             if (numberofquestions >= 0 && numberofquestions <= 4) difficulty = 1;
-            if (numberofquestions >= 5 && numberofquestions<=9) difficulty = 2;
+            if (numberofquestions >= 5 && numberofquestions<= 9) difficulty = 2;
             if (numberofquestions >= 10 && numberofquestions <= 13) difficulty = 3;
             if (numberofquestions == 14)
             {
