@@ -38,14 +38,10 @@ namespace Milionaire
             if(a == 1000)
             {
                 scoreText2.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
-                Sleep(3000);
-                Frame.GoBack();
             }
             if(a==32000)
             {
                 scoreText3.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
-                Sleep(3000);
-                Frame.GoBack();
             }
             if (a==1000000)
             {
@@ -53,11 +49,9 @@ namespace Milionaire
             }
         }
 
-        private void Sleep(int ms)
+        private void goBackButton_Click(object sender, RoutedEventArgs e)
         {
-            DateTime now = DateTime.Now;
-            DateTime endOfSleep = now.AddMilliseconds(ms);
-            while (DateTime.Now < endOfSleep) { }
+            Frame.GoBack();
         }
     }
 }
