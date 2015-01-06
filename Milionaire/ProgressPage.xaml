@@ -15,20 +15,21 @@
                 <GradientStop Color="#FF0949A4" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="14       500000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,88,91,0" Width="208"/>
-        <TextBlock x:Name="scoreText4" Foreground="#FFFFA200" TextWrapping="Wrap" FontSize="30" Text="15       1000000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,52,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  1       100" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,556,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  2       200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,520,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  3       300" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,484,91,0" Width="208"/>
-        <TextBlock  TextWrapping="Wrap" FontSize="30" Text="  4       500" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,448,91,0" Width="208"/>
-        <TextBlock x:Name="scoreText2" Foreground="#FFFFA200" TextWrapping="Wrap" FontSize="30" Text="  5       1000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,412,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  6       2000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,376,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  7       4000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,340,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  8       8000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,304,91,0" Width="208"/>
-        <TextBlock  TextWrapping="Wrap" FontSize="30" Text="  9       16000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,268,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Foreground="#FFFFA200" x:Name="scoreText3" Text="10       32000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,232,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="11       64000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,196,91,0" Width="208"/>
-        <TextBlock TextWrapping="Wrap" FontSize="30" Text="12       125000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,160,91,0" Width="208"/>
-        <TextBlock  TextWrapping="Wrap" FontSize="30" Text="13       250000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,124,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="14       500000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,57,91,0" Width="208"/>
+        <TextBlock x:Name="scoreText4" Foreground="#FFFFA200" TextWrapping="Wrap" FontSize="30" Text="15       1000000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,21,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  1       100" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,525,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  2       200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,489,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  3       300" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,453,91,0" Width="208"/>
+        <TextBlock  TextWrapping="Wrap" FontSize="30" Text="  4       500" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,417,91,0" Width="208"/>
+        <TextBlock x:Name="scoreText2" Foreground="#FFFFA200" TextWrapping="Wrap" FontSize="30" Text="  5       1000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,381,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  6       2000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,345,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  7       4000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,309,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="  8       8000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,273,91,0" Width="208"/>
+        <TextBlock  TextWrapping="Wrap" FontSize="30" Text="  9       16000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,237,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Foreground="#FFFFA200" x:Name="scoreText3" Text="10       32000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,201,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="11       64000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,165,91,0" Width="208"/>
+        <TextBlock TextWrapping="Wrap" FontSize="30" Text="12       125000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,129,91,0" Width="208"/>
+        <TextBlock  TextWrapping="Wrap" FontSize="30" Text="13       250000" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="101,93,91,0" Width="208"/>
+        <Button x:Name="goBackButton" Content="Продолжить" HorizontalAlignment="Center" Margin="0,556,0,0" VerticalAlignment="Top" Width="361" Height="70" Click="goBackButton_Click"/>
     </Grid>
 </Page>
