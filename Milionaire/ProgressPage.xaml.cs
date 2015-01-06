@@ -34,6 +34,30 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            int a = (int)e.Parameter;
+            if(a == 1000)
+            {
+                scoreText2.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+                Sleep(3000);
+                Frame.GoBack();
+            }
+            if(a==32000)
+            {
+                scoreText3.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+                Sleep(3000);
+                Frame.GoBack();
+            }
+            if (a==1000000)
+            {
+                scoreText4.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+            }
+        }
+
+        private void Sleep(int ms)
+        {
+            DateTime now = DateTime.Now;
+            DateTime endOfSleep = now.AddMilliseconds(ms);
+            while (DateTime.Now < endOfSleep) { }
         }
     }
 }

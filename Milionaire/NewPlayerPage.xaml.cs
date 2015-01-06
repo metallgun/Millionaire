@@ -52,10 +52,6 @@ namespace Milionaire
                 checkdata = false;
             }
 
-            //PlayerContext pc = new PlayerContext()
-            //{
-            //    PlayerName = playerNameTextbox.Text
-            //};
             var pc = new Player()
             {
                 Name = playerNameTextbox.Text,
