@@ -172,7 +172,6 @@ namespace Milionaire
             {
                 Frame.Navigate(typeof(FinishGamePage), player.Score);
                 await WriteScoreToFile();
-                
             }
 
         }
