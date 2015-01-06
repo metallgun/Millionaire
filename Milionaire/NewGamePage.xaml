@@ -39,5 +39,7 @@
         <Button x:Name="ringButton" Content="Button" HorizontalAlignment="Left" Height="79" Margin="133,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="130" Opacity="0" Click="ringButton_Click"/>
         <Image x:Name="_5050XImage" HorizontalAlignment="Left" Height="60" Margin="19,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Stretch="Fill" Source="Assets/5050X.png" Visibility="Collapsed"/>
         <TextBlock x:Name="phoneDialog" FontSize="20" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Звоним вашему другу..." VerticalAlignment="Top" Margin="20,0,0,0" Grid.Row="0" Height="50" Width="315" Opacity="1"/>
+        <Button x:Name="audButton" HorizontalAlignment="Left" Height="78" Margin="268,1,0,0" Grid.Row="3" VerticalAlignment="Top" Width="121" Opacity="0" Click="audButton_Click"/>
+        <Image x:Name="audXImage" HorizontalAlignment="Left" Height="60" Margin="280,10,0,-10" Grid.Row="3" VerticalAlignment="Top" Width="100" Stretch="Fill" Source="Assets/audX.png" Visibility="Collapsed"/>
     </Grid>
 </Page>

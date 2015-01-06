@@ -106,8 +106,8 @@ namespace Milionaire
         {
             if (numberofquestions >= 0 && numberofquestions <= 4) difficulty = 1;
             if (numberofquestions >= 5 && numberofquestions<=9) difficulty = 2;
-            if (numberofquestions >= 10 && numberofquestions <= 14) difficulty = 3;
-            if (numberofquestions == 15)
+            if (numberofquestions >= 10 && numberofquestions <= 13) difficulty = 3;
+            if (numberofquestions == 14)
             {
                 difficulty = 4;
                 ringbutton.Visibility = Visibility.Collapsed;
@@ -117,6 +117,8 @@ namespace Milionaire
                 _5050button1.Visibility = Visibility.Collapsed;
                 _5050XImage.Visibility = Visibility.Visible;
                 audbutton.Visibility = Visibility.Collapsed;
+                audButton.Visibility = Visibility.Collapsed;
+                audXImage.Visibility = Visibility.Visible;
             }
 
             foreach (Button b in answerButtons)
@@ -215,6 +217,11 @@ namespace Milionaire
             while (DateTime.Now < endOfSleep) { }
         }
 
+        /// <summary>
+        /// Подсказка 50/50
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _5050button1_Click(object sender, RoutedEventArgs e)
         {
             int count = 0;
@@ -233,6 +240,11 @@ namespace Milionaire
             _5050XImage.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Подсказка Звонок другу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ringButton_Click(object sender, RoutedEventArgs e)
         {
             phoneDialog.Visibility = Visibility.Visible;
@@ -271,6 +283,16 @@ namespace Milionaire
             ringButton.IsEnabled = false;
             ringbutton.Visibility = Visibility.Collapsed;
             ringbuttonX.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Подсказка зала
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void audButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
