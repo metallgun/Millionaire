@@ -51,37 +51,31 @@ namespace Milionaire
                 {
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                     b.Background.Opacity = 1;
-                    b.IsEnabled = false;
-                };
-
-                b.IsEnabledChanged += (sender, e) =>
+                    //Проверка правильности НЕ РАБОТАЕТ!!!
+                    if (b.Background.Opacity == 1)
                     {
-                        if (!b.IsEnabled) b.IsEnabled = true;
-                        //Проверка правильности НЕ РАБОТАЕТ!!!
-                        if (b.Background.Opacity == 1)
+                        //Правильный ответ
+                        if (b.Content.ToString() == correctAnswer)
                         {
-                            //Правильный ответ
-                            if (b.Content.ToString() == correctAnswer)
-                            {
-                                b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                            b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
 
-                                Sleep(3000);
-                                FillFeilds(1);
-                            }
-                            //Неправильный ответ
-                            else
+                            Sleep(3000);
+                            FillFeilds(1);
+                        }
+                        //Неправильный ответ
+                        else
+                        {
+                            b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                            foreach (Button b1 in answerButtons)
                             {
-                                b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-                                foreach (Button b1 in answerButtons)
+                                if (b1.Content.ToString() == correctAnswer)
                                 {
-                                    if (b1.Content.ToString() == correctAnswer)
-                                    {
-                                        b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                                    }
+                                    b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                                 }
                             }
                         }
-                    };
+                    }
+                };
             }
 
             FillFeilds(1);
