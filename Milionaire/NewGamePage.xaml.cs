@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using System.Threading;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.Storage;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -58,7 +59,7 @@ namespace Milionaire
                 {
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                     b.Background.Opacity = 1;
-                    //Проверка правильности
+                    //Проверка правильности НЕ РАБОТАЕТ!!!
                     if (b.Background.Opacity == 1)
                     {
                         //Правильный ответ
@@ -68,7 +69,7 @@ namespace Milionaire
                             //Sleep(3000);
                             FillFeilds(1);
                             AddingScore();
-                            if (checkring) phoneDialog.Visibility = Visibility.Collapsed;
+                            if (checkring == true) phoneDialog.Visibility = Visibility.Collapsed;
                         }
                         //Неправильный ответ
                         else
@@ -105,11 +106,10 @@ namespace Milionaire
         // 5 easy 5 medium 4 hard 1 million
         private void FillFeilds(int difficulty)
         {
-            if (numberofquestions == 0) numberofquestions = Container.Quest;
-            if (numberofquestions >= 0 && numberofquestions <= 5) difficulty = 1;
-            if (numberofquestions >= 6 && numberofquestions<= 10) difficulty = 2;
-            if (numberofquestions >= 11 && numberofquestions <= 15) difficulty = 3;
-            if (numberofquestions == 16)
+            if (numberofquestions >= 0 && numberofquestions <= 4) difficulty = 1;
+            if (numberofquestions >= 5 && numberofquestions<= 9) difficulty = 2;
+            if (numberofquestions >= 10 && numberofquestions <= 13) difficulty = 3;
+            if (numberofquestions == 14)
             {
                 difficulty = 4;
                 ringbutton.Visibility = Visibility.Collapsed;
@@ -154,7 +154,7 @@ namespace Milionaire
             numberofquestions += 1;
         }
 
-        private void AddingScore()
+        private async void AddingScore()
         {
             if (player.Score == 0)
                 player.Score = 100;
@@ -168,9 +168,33 @@ namespace Milionaire
             scoreText.Text = player.Score.ToString();
             if (player.Score == 1000 || player.Score == 32000)
                 Frame.Navigate(typeof(ProgressPage), player.Score);
-            Container.Score = player.Score;
-            Container.Quest = numberofquestions;
-            if (player.Score == 1000000) Frame.Navigate(typeof(FinishGamePage));
+            if (player.Score == 1000000)
+            {
+                Frame.Navigate(typeof(FinishGamePage), player.Score);
+                await WriteScoreToFile();
+                
+            }
+
+        }
+
+        private async Task WriteScoreToFile()
+        {
+            //создаем массив очков
+            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((player.Score.ToString()).ToCharArray());
+
+            StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+            //создаем папку
+            var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
+            //создаем файл
+            string filename = player.Name + "File.txt";
+            var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+            //пишем очки
+            using (var s = await file.OpenStreamForWriteAsync())
+            {
+                s.Write(fileBytes, 0, fileBytes.Length);
+            }
         }
 
         //private void Clicks()

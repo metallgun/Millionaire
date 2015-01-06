@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using Windows.Storage;
+using System.Threading.Tasks;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -52,6 +54,7 @@ namespace Milionaire
                 checkdata = false;
             }
 
+            
             var pc = new Player()
             {
                 Name = playerNameTextbox.Text,
@@ -62,6 +65,22 @@ namespace Milionaire
                 Frame.Navigate(typeof(NewgamePage), pc);
         }
 
+        //private async Task WriteNameToFile()
+        //{
+        //    byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(this.playerNameTextbox.Text.ToCharArray());
+
+        //    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+        //    var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
+
+        //    var file = await playerFolder.CreateFileAsync("playerFile.txt", CreationCollisionOption.ReplaceExisting);
+
+        //    // Write the data from the textbox.
+        //    using (var s = await file.OpenStreamForWriteAsync())
+        //    {
+        //        s.Write(fileBytes, 0, fileBytes.Length);
+        //    }
+        //}
         private async void ShowMessagebox()
         {
             MessageDialog msg = new MessageDialog("Введите имя игрока"); //по хорошему нужно ex.message Но я хз как это сделать лол
