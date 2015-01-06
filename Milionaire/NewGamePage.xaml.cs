@@ -50,7 +50,6 @@ namespace Milionaire
                 {
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                     b.Background.Opacity = 1;
-
                     //Проверка правильности НЕ РАБОТАЕТ!!!
                     if (b.Background.Opacity == 1)
                     {
