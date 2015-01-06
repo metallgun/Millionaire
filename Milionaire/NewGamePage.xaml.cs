@@ -28,6 +28,8 @@ namespace Milionaire
         List<Button> answerButtons = new List<Button>();
         List<Question> questionList;
         int currentDifficulty;
+        Player player;
+        int numberofQuetions;
 
         string correctAnswer;
 
@@ -46,6 +48,7 @@ namespace Milionaire
                 b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
                 b.Background.Opacity = 0;
                 b.Visibility = Visibility.Visible;
+
                 b.Click += (sender, e) =>
                 {
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
@@ -57,9 +60,9 @@ namespace Milionaire
                         if (b.Content.ToString() == correctAnswer)
                         {
                             b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-
                             Sleep(3000);
                             FillFeilds(1);
+                            AddingScore();
                         }
                         //Неправильный ответ
                         else
@@ -76,7 +79,6 @@ namespace Milionaire
                     }
                 };
             }
-
             FillFeilds(1);
         }
 
@@ -87,9 +89,9 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var pc = (Player)e.Parameter;
-            nameText.Text = pc.Name;
-            scoreText.Text = pc.Score.ToString();
+            player = (Player)e.Parameter;
+            nameText.Text = player.Name;
+            scoreText.Text = player.Score.ToString();
         }
 
         //Заполнение полей
@@ -123,6 +125,21 @@ namespace Milionaire
             }
             correctAnswer = currentQuestion.RightAnswer;
             currentDifficulty = currentQuestion.Difficulty;
+        }
+
+        private void AddingScore()
+        {
+            if (player.Score == 0)
+                player.Score = 100;
+            else if (player.Score >= 100 && player.Score < 300)
+                player.Score += 100;
+            else if (player.Score == 300)
+                player.Score = 500;
+            else if ((player.Score >= 500 && player.Score < 64000) || (player.Score >= 125000 && player.Score < 1000000))
+                player.Score = player.Score * 2;
+            else player.Score = 125000;
+            scoreText.Text = player.Score.ToString();
+
         }
 
         //private void Clicks()
@@ -196,6 +213,7 @@ namespace Milionaire
         private void ringButton_Click(object sender, RoutedEventArgs e)
         {
             phoneDialog.Visibility = Visibility.Visible;
+            //phoneDialog.Opacity = 1;
             Sleep(1000);
             if (currentDifficulty != 3)
             {
