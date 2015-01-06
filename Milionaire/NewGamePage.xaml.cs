@@ -170,9 +170,8 @@ namespace Milionaire
                 Frame.Navigate(typeof(ProgressPage), player.Score);
             if (player.Score == 1000000)
             {
-                Frame.Navigate(typeof(FinishGamePage), player.Score);
                 await WriteScoreToFile();
-                
+                Frame.Navigate(typeof(FinishGamePage), player.Score);
             }
 
         }
@@ -187,8 +186,8 @@ namespace Milionaire
             //создаем папку
             var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
             //создаем файл
-            string filename = player.Name + "File.txt";
-            var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+            //string filename = player.Name + "File.txt";
+            var file = await playerFolder.CreateFileAsync("playerFile", CreationCollisionOption.ReplaceExisting);
 
             //пишем очки
             using (var s = await file.OpenStreamForWriteAsync())
