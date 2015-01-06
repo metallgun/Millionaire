@@ -39,11 +39,11 @@ namespace Milionaire
             {
                 scoreText2.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
             }
-            if(a==32000)
+            if(a == 32000)
             {
                 scoreText3.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
             }
-            if (a==1000000)
+            if (a == 1000000)
             {
                 scoreText4.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
             }

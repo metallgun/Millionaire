@@ -25,8 +25,6 @@ namespace Milionaire
         public FinishGamePage()
         {
             this.InitializeComponent();
-
-       
         }
 
         /// <summary>
@@ -37,7 +35,7 @@ namespace Milionaire
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             int prize = (int)e.Parameter;
-            if (prize < 1000000) finalPhraseText.Text = "К сожалению, Вы не выиграли миллион.\nПопробуйте еще раз.";
+            if (prize < 1000000) finalPhraseText.Text = "К сожалению, Вы не выиграли миллион.\nПопробуете еще раз?";
             else finalPhraseText.Text = "Поздравляем!\nВы стали миллионером!";
             scoreText.Text += " " + prize;
         }

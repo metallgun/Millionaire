@@ -81,6 +81,7 @@ namespace Milionaire
                                     b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                                 }
                             }
+                            Frame.Navigate(typeof(FinishGamePage), player.Score);
                         }
                     }
                 };
