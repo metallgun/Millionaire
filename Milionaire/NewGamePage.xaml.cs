@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using System.Threading;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.Storage;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -167,8 +168,33 @@ namespace Milionaire
             scoreText.Text = player.Score.ToString();
             if (player.Score == 1000 || player.Score == 32000)
                 Frame.Navigate(typeof(ProgressPage), player.Score);
-            if (player.Score == 1000000) Frame.Navigate(typeof(FinishGamePage), player.Score);
+            if (player.Score == 1000000)
+            {
+                Frame.Navigate(typeof(FinishGamePage), player.Score);
+                WriteScoreToFile();
+                
+            }
 
+        }
+
+        private async Task WriteScoreToFile()
+        {
+            //создаем массив очков
+            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((player.Score.ToString()).ToCharArray());
+
+            StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+            //создаем папку
+            var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
+            //создаем файл
+            string filename = player.Name + "File.txt";
+            var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+            //пишем очки
+            using (var s = await file.OpenStreamForWriteAsync())
+            {
+                s.Write(fileBytes, 0, fileBytes.Length);
+            }
         }
 
         //private void Clicks()
