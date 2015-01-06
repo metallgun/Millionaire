@@ -106,8 +106,8 @@ namespace Milionaire
         {
             if (numberofquestions >= 0 && numberofquestions <= 4) difficulty = 1;
             if (numberofquestions >= 5 && numberofquestions<=9) difficulty = 2;
-            if (numberofquestions >= 10 && numberofquestions <= 14) difficulty = 3;
-            if (numberofquestions == 15)
+            if (numberofquestions >= 10 && numberofquestions <= 13) difficulty = 3;
+            if (numberofquestions == 14)
             {
                 difficulty = 4;
                 ringbutton.Visibility = Visibility.Collapsed;
@@ -117,6 +117,8 @@ namespace Milionaire
                 _5050button1.Visibility = Visibility.Collapsed;
                 _5050XImage.Visibility = Visibility.Visible;
                 audbutton.Visibility = Visibility.Collapsed;
+                audButton.Visibility = Visibility.Collapsed;
+                audXImage.Visibility = Visibility.Visible;
             }
 
             foreach (Button b in answerButtons)
@@ -235,11 +237,25 @@ namespace Milionaire
             _5050XImage.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Подсказка Звонок другу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ringButton_Click(object sender, RoutedEventArgs e)
         {
             phoneDialog.Visibility = Visibility.Visible;
-            //phoneDialog.Opacity = 1;
             Sleep(1000);
+            string[] answers = new string[4];
+            int count = 0;
+            for (int i = 0; i < answerButtons.Count; i++)
+            {
+                if (answerButtons[i].IsEnabled) 
+                {
+                    count++;
+                    answers[i] = answerButtons[i].Content.ToString();
+                }
+            }
             if (currentDifficulty != 3)
             {
                 phoneDialog.Text = "Друг думает...";
@@ -256,7 +272,7 @@ namespace Milionaire
                         answ = correctAnswer;
                     else
                     {
-                        answ = answerButtons[(new Random()).Next(4)].Content.ToString();
+                        answ = answers[(new Random()).Next(count)];
                     }
                     phoneDialog.Text = "Скорее всего, верный ответ: " + answ;
                 }
@@ -266,13 +282,45 @@ namespace Milionaire
                 int rd = new Random().Next(100);
                 if (rd < 80)
                 {
-                    phoneDialog.Text = "Не уверен. Наверное, ответ: " + answerButtons[(new Random()).Next(4)].Content.ToString();
+                    phoneDialog.Text = "Не уверен. Наверное, ответ: " + answers[(new Random()).Next(count)];
                 }
                 else phoneDialog.Text = "Друг не поднимает трубку";
             }
             ringButton.IsEnabled = false;
             ringbutton.Visibility = Visibility.Collapsed;
             ringbuttonX.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Подсказка зала
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void audButton_Click(object sender, RoutedEventArgs e)
+        {
+            int rightPerc, i, count = 0;
+            foreach (Button b in answerButtons)
+            {
+                if (b.IsEnabled) count++;
+            }
+            int[] wrongPerc = new int[count-1];
+            if (currentDifficulty == 1) rightPerc = (new Random()).Next(60,90);
+            else if (currentDifficulty == 2) rightPerc = (new Random()).Next(30,70);
+            else rightPerc = (new Random()).Next(10,50);
+            for (i = 0; i < wrongPerc.Count() - 1; i++)
+            {
+                int before = rightPerc;
+                for (int j = 0; j < i; j++) before += wrongPerc[j];
+                    wrongPerc[i] = (new Random()).Next((100 - before));
+            }
+            int before1 = rightPerc;
+                for (int j = 0; j < wrongPerc.Count() - 1; j++) before1 += wrongPerc[j];
+                wrongPerc[i] = 100 - before1;
+        }
+
+        private void moneyButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Забрать деньги
         }
     }
 }
