@@ -58,7 +58,7 @@ namespace Milionaire
                 {
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                     b.Background.Opacity = 1;
-                    //Проверка правильности НЕ РАБОТАЕТ!!!
+                    //Проверка правильности
                     if (b.Background.Opacity == 1)
                     {
                         //Правильный ответ
@@ -68,7 +68,7 @@ namespace Milionaire
                             //Sleep(3000);
                             FillFeilds(1);
                             AddingScore();
-                            if (checkring == true) phoneDialog.Visibility = Visibility.Collapsed;
+                            if (checkring) phoneDialog.Visibility = Visibility.Collapsed;
                         }
                         //Неправильный ответ
                         else
@@ -105,6 +105,7 @@ namespace Milionaire
         // 5 easy 5 medium 4 hard 1 million
         private void FillFeilds(int difficulty)
         {
+            if (numberofquestions == 0) numberofquestions = Container.Quest;
             if (numberofquestions >= 0 && numberofquestions <= 4) difficulty = 1;
             if (numberofquestions >= 5 && numberofquestions<= 9) difficulty = 2;
             if (numberofquestions >= 10 && numberofquestions <= 13) difficulty = 3;
@@ -167,8 +168,9 @@ namespace Milionaire
             scoreText.Text = player.Score.ToString();
             if (player.Score == 1000 || player.Score == 32000)
                 Frame.Navigate(typeof(ProgressPage), player.Score);
-            if (player.Score == 1000000) Frame.Navigate(typeof(FinishGamePage), player.Score);
-
+            Container.Score = player.Score;
+            Container.Quest = numberofquestions;
+            if (player.Score == 1000000) Frame.Navigate(typeof(FinishGamePage));
         }
 
         //private void Clicks()

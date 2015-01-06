@@ -85,6 +85,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Container.cs" />
     <Compile Include="FinishGamePage.xaml.cs">
       <DependentUpon>FinishGamePage.xaml</DependentUpon>
     </Compile>

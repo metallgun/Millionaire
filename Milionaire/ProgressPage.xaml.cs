@@ -34,7 +34,7 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            int a = (int)e.Parameter;
+            int a = Container.Score;
             if(a == 1000)
             {
                 scoreText2.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
