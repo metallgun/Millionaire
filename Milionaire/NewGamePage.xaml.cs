@@ -138,7 +138,7 @@ namespace Milionaire
         //            //b.ClickMode = ClickMode.Press;
         //            //foreach (Button but in answerButtons)
         //            //{
-        //            //    but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+        //            //    but.Foreground = new SolidColorjrBrush(Windows.UI.Colors.White);
         //            //    but.Background.Opacity = 0;
         //            //}
         //            b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
