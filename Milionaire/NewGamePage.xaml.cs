@@ -165,8 +165,8 @@ namespace Milionaire
                 player.Score = player.Score * 2;
             else player.Score = 125000;
             scoreText.Text = player.Score.ToString();
-            //if (player.Score == 1000 || player.Score == 32000)
-            //   Frame.Navigate(typeof(ProgressPage), player.Score);
+            if (player.Score == 1000 || player.Score == 32000)
+                Frame.Navigate(typeof(ProgressPage), player.Score);
             if (player.Score == 1000000) Frame.Navigate(typeof(FinishGamePage), player.Score);
 
         }
@@ -260,8 +260,8 @@ namespace Milionaire
             }
             if (currentDifficulty != 3)
             {
-                phoneDialog.Text = "Друг думает...";
-                Sleep(2000);
+                //phoneDialog.Text = "Друг думает...";
+                //Sleep(2000);
                 if (currentDifficulty == 1)
                 {
                     phoneDialog.Text = "Я уверен, что верный ответ: " + correctAnswer;
@@ -321,9 +321,14 @@ namespace Milionaire
                 wrongPerc[i] = 100 - before1;
         }
 
+        /// <summary>
+        /// Забрать деньги
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void moneyButton_Click(object sender, RoutedEventArgs e)
         {
-            //Забрать деньги
+            Frame.Navigate(typeof(FinishGamePage), player.Score);
         }
     }
 }
