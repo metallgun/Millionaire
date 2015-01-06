@@ -154,7 +154,7 @@ namespace Milionaire
             numberofquestions += 1;
         }
 
-        private void AddingScore()
+        private async void AddingScore()
         {
             if (player.Score == 0)
                 player.Score = 100;
@@ -171,7 +171,7 @@ namespace Milionaire
             if (player.Score == 1000000)
             {
                 Frame.Navigate(typeof(FinishGamePage), player.Score);
-                WriteScoreToFile();
+                await WriteScoreToFile();
                 
             }
 
