@@ -292,8 +292,12 @@ namespace Milionaire
         /// <param name="e"></param>
         private void audButton_Click(object sender, RoutedEventArgs e)
         {
-            int[] wrongPerc = new int[answerButtons.Count()-1];
-            int rightPerc, i;
+            int rightPerc, i, count = 0;
+            foreach (Button b in answerButtons)
+            {
+                if (b.IsEnabled) count++;
+            }
+            int[] wrongPerc = new int[count-1];
             if (currentDifficulty == 1) rightPerc = (new Random()).Next(60,90);
             else if (currentDifficulty == 2) rightPerc = (new Random()).Next(30,70);
             else rightPerc = (new Random()).Next(10,50);
