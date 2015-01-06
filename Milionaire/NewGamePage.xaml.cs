@@ -29,7 +29,7 @@ namespace Milionaire
         List<Question> questionList;
         int currentDifficulty;
         Player player;
-        int numberofQuetions;
+        bool checkring = false;
 
         int numberofquestions;
 
@@ -68,6 +68,7 @@ namespace Milionaire
                             Sleep(3000);
                             FillFeilds(1);
                             AddingScore();
+                            if (checkring == true) phoneDialog.Visibility = Visibility.Collapsed;
                         }
                         //Неправильный ответ
                         else
@@ -289,6 +290,7 @@ namespace Milionaire
             ringButton.IsEnabled = false;
             ringbutton.Visibility = Visibility.Collapsed;
             ringbuttonX.Visibility = Visibility.Visible;
+            checkring = true;
         }
 
         /// <summary>

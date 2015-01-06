@@ -50,5 +50,10 @@ namespace Milionaire
         {
             Frame.Navigate(typeof(NewPlayerPage));
         }
+
+        private void buttonRecords_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RecordPage));
+        }
     }
 }

@@ -35,5 +35,10 @@ namespace Milionaire
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
     }
 }
