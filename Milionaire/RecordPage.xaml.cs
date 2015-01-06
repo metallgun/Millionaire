@@ -40,5 +40,10 @@ namespace Milionaire
         {
             Frame.GoBack();
         }
+
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
