@@ -65,7 +65,7 @@ namespace Milionaire
                         if (b.Content.ToString() == correctAnswer)
                         {
                             b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                            Sleep(3000);
+                            //Sleep(3000);
                             FillFeilds(1);
                             AddingScore();
                             if (checkring == true) phoneDialog.Visibility = Visibility.Collapsed;
@@ -165,8 +165,9 @@ namespace Milionaire
                 player.Score = player.Score * 2;
             else player.Score = 125000;
             scoreText.Text = player.Score.ToString();
-            //if (player.Score == 1000 || player.Score == 32000 || player.Score == 1000000)
+            //if (player.Score == 1000 || player.Score == 32000)
             //    Frame.Navigate(typeof(ProgressPage), player.Score);
+            if (player.Score == 1000000) Frame.Navigate(typeof(FinishGamePage), player.Score);
 
         }
 
