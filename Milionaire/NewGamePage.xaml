@@ -16,7 +16,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="150" />
             <RowDefinition Height="*" />
             <RowDefinition Height="100" />
@@ -38,6 +38,6 @@
         <Button x:Name="_5050button1" Content="Button" HorizontalAlignment="Left" Height="78" Margin="10,1,0,0" Grid.Row="3" VerticalAlignment="Top" Width="118" Click="_5050button1_Click" Opacity="0"/>
         <Button x:Name="ringButton" Content="Button" HorizontalAlignment="Left" Height="79" Margin="133,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="130" Opacity="0" Click="ringButton_Click"/>
         <Image x:Name="_5050XImage" HorizontalAlignment="Left" Height="60" Margin="19,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Stretch="Fill" Source="Assets/5050X.png" Visibility="Collapsed"/>
-        <TextBlock x:Name="phoneDialog" FontSize="20" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Звоним вашему другу..." VerticalAlignment="Top" Margin="20,0,0,0" Visibility="Collapsed" Grid.Row="0" Height="40" Width="315"/>
+        <TextBlock x:Name="phoneDialog" FontSize="20" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Звоним вашему другу..." VerticalAlignment="Top" Margin="20,0,0,0" Visibility="Visible" Grid.Row="0" Height="50" Width="315"/>
     </Grid>
 </Page>
