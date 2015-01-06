@@ -27,13 +27,18 @@ namespace Milionaire
     {
         List<Button> answerButtons = new List<Button>();
         List<Question> questionList;
-        int currentDifficulty;
+        int currentDifficulty=0;
+
+        int numberofquestions;
 
         string correctAnswer;
 
         public NewgamePage()
         {
             this.InitializeComponent();
+
+            phoneDialog.Visibility = Visibility.Collapsed;
+
             questionList = new List<Question>();
             Question.PopulateQuestionList(questionList);
             answerButtons.Add(answerButton1);
@@ -94,8 +99,25 @@ namespace Milionaire
         }
 
         //Заполнение полей
+
+        // 5 easy 5 medium 4 hard 1 million
         private void FillFeilds(int difficulty)
         {
+            if (numberofquestions >= 0 && numberofquestions <= 4) difficulty = 1;
+            if (numberofquestions >= 5 && numberofquestions<=9) difficulty = 2;
+            if (numberofquestions >= 10 && numberofquestions <= 14) difficulty = 3;
+            if (numberofquestions == 15)
+            {
+                difficulty = 4;
+                ringbutton.Visibility = Visibility.Collapsed;
+                ringbuttonX.Visibility = Visibility.Visible;
+                ringButton.Visibility = Visibility.Collapsed;
+                _5050button.Visibility = Visibility.Collapsed;
+                _5050button1.Visibility = Visibility.Collapsed;
+                _5050XImage.Visibility = Visibility.Visible;
+                audbutton.Visibility = Visibility.Collapsed;
+            }
+
             foreach (Button b in answerButtons)
             {
                 b.IsEnabled = true;
@@ -124,6 +146,7 @@ namespace Milionaire
             }
             correctAnswer = currentQuestion.RightAnswer;
             currentDifficulty = currentQuestion.Difficulty;
+            numberofquestions += 1;
         }
 
         //private void Clicks()
@@ -207,7 +230,7 @@ namespace Milionaire
                 {
                     phoneDialog.Text = "Я уверен, что верный ответ: " + correctAnswer;
                 }
-                else 
+                else
                 {
                     string answ;
                     int rd = new Random().Next(100);
