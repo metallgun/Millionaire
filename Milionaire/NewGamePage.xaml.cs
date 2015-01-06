@@ -166,7 +166,7 @@ namespace Milionaire
             else player.Score = 125000;
             scoreText.Text = player.Score.ToString();
             //if (player.Score == 1000 || player.Score == 32000)
-            //    Frame.Navigate(typeof(ProgressPage), player.Score);
+            //   Frame.Navigate(typeof(ProgressPage), player.Score);
             if (player.Score == 1000000) Frame.Navigate(typeof(FinishGamePage), player.Score);
 
         }

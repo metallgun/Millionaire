@@ -22,7 +22,6 @@
         <m3:InitialRotationPreference>
           <m3:Rotation Preference="portrait" />
         </m3:InitialRotationPreference>
-        <m3:SplashScreen Image="Assets\Psyduck.png" />
       </m3:VisualElements>
     </Application>
   </Applications>
