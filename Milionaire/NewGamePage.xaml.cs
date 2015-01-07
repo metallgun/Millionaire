@@ -16,7 +16,6 @@ using System.Threading.Tasks;
 using System.Threading;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.Storage;
-using Windows.UI.Xaml.Shapes;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -67,7 +66,6 @@ namespace Milionaire
                         if (b.Content.ToString() == correctAnswer)
                         {
                             Color(b);
-                            //Task.Run(Color(b));
                             //b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                             //Sleep(3000);
                             AddingScore();
@@ -85,6 +83,7 @@ namespace Milionaire
                                     b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                                 }
                             }
+                            //await WriteScoreToFile(Container.Score);
                             Frame.Navigate(typeof(FinishGamePage));
                         }
                     }
@@ -106,14 +105,11 @@ namespace Milionaire
         }
 
         private async void Color(Button button)
-        { await ColorTask(button); }
-
-        private async Task ColorTask(Button button)
         {
-            await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            {
-                //button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-            });
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    //button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                });
             //Sleep(3000);
         }
 
@@ -171,7 +167,7 @@ namespace Milionaire
             numberofquestions += 1;
         }
 
-        private async void AddingScore()
+        private void AddingScore()
         {
             if (player.Score == 0)
                 player.Score = 100;
@@ -194,14 +190,14 @@ namespace Milionaire
                 Container.Score = player.Score;
                 Container.Quest = numberofquestions;
                 Frame.Navigate(typeof(FinishGamePage));
-                await WriteScoreToFile();
+                //await WriteScoreToFile(Container.Score);
             }
         }
 
-        private async Task WriteScoreToFile()
+        private async Task WriteScoreToFile(int score)
         {
             //создаем массив очков
-            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((player.Score.ToString()).ToCharArray());
+            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((score.ToString()).ToCharArray());
 
             StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
@@ -373,9 +369,10 @@ namespace Milionaire
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void moneyButton_Click(object sender, RoutedEventArgs e)
+        private async void moneyButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Score = player.Score;
+            await WriteScoreToFile(Container.Score);
             Frame.Navigate(typeof(FinishGamePage), player.Score);
         }
     }
