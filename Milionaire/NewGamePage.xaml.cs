@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 using System.Threading.Tasks;
 using System.Threading;
 using Windows.UI.Xaml.Media.Imaging;
@@ -27,6 +28,7 @@ namespace Milionaire
     public sealed partial class NewgamePage : Page
     {
         List<Button> answerButtons = new List<Button>();
+        List<Rectangle> rectList = new List<Rectangle>();
         List<Question> questionList;
         int currentDifficulty;
         Player player;
@@ -46,6 +48,10 @@ namespace Milionaire
             answerButtons.Add(answerButton2);
             answerButtons.Add(answerButton3);
             answerButtons.Add(answerButton4);
+            rectList.Add(aud1);
+            rectList.Add(aud2);
+            rectList.Add(aud3);
+            rectList.Add(aud4);
 
             foreach (Button b in answerButtons)
             {
@@ -55,6 +61,10 @@ namespace Milionaire
 
                 b.Click += (sender, e) =>
                 {
+                    foreach (var a in rectList)
+                    {
+                        a.Visibility = Visibility.Collapsed;
+                    }
                     b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
                     b.Background.Opacity = 1;
                     //Проверка правильности НЕ РАБОТАЕТ!!!
@@ -253,6 +263,7 @@ namespace Milionaire
 
         private void _5050button1_Click(object sender, RoutedEventArgs e)
         {
+            
             int count = 0;
             while (count < 2)
             {
@@ -261,6 +272,7 @@ namespace Milionaire
                 {
                     answerButtons[rnd].Visibility = Visibility.Collapsed;
                     answerButtons[rnd].IsEnabled = false;
+                    rectList[rnd].Visibility = Visibility.Collapsed;
                     count++;
                 }
             }
@@ -331,24 +343,43 @@ namespace Milionaire
         /// <param name="e"></param>
         private void audButton_Click(object sender, RoutedEventArgs e)
         {
-            int rightPerc, i, count = 0;
+            int rightPerc, i, count = 0,j1=0;
             foreach (Button b in answerButtons)
             {
                 if (b.IsEnabled) count++;
             }
-            int[] wrongPerc = new int[count-1];
-            if (currentDifficulty == 1) rightPerc = (new Random()).Next(60,90);
-            else if (currentDifficulty == 2) rightPerc = (new Random()).Next(30,70);
-            else rightPerc = (new Random()).Next(10,50);
+            int[] wrongPerc = new int[count - 1];
+            if (currentDifficulty == 1) rightPerc = (new Random()).Next(60, 90);
+            else if (currentDifficulty == 2) rightPerc = (new Random()).Next(30, 70);
+            else rightPerc = (new Random()).Next(10, 50);
             for (i = 0; i < wrongPerc.Count() - 1; i++)
             {
                 int before = rightPerc;
                 for (int j = 0; j < i; j++) before += wrongPerc[j];
-                    wrongPerc[i] = (new Random()).Next((100 - before));
-            } 
+                wrongPerc[i] = (new Random()).Next((100 - before));
+            }
             int before1 = rightPerc;
-                for (int j = 0; j < wrongPerc.Count() - 1; j++) before1 += wrongPerc[j];
-                wrongPerc[i] = 100 - before1;
+            for (int j = 0; j < wrongPerc.Count() - 1; j++) before1 += wrongPerc[j];
+            wrongPerc[i] = 100 - before1;
+
+            foreach (var a in rectList)
+            {
+                a.Visibility = Visibility.Visible;
+            }
+
+            for(int i1 = 0; i1<answerButtons.Count; i1++)
+            {
+                if (answerButtons[i1].Content.ToString() == correctAnswer)
+                    rectList[i1].Width = (rectList[i1].Width * rightPerc)/100;
+                else
+                {
+                    rectList[i1].Width = (rectList[i1].Width * wrongPerc[j1])/100;
+                    j1++;
+                }
+            }
+            audbutton.Visibility = Visibility.Collapsed;
+            audXImage.Visibility = Visibility.Visible;
+            audButton.IsEnabled = false;
         }
 
         /// <summary>
@@ -358,6 +389,7 @@ namespace Milionaire
         /// <param name="e"></param>
         private void moneyButton_Click(object sender, RoutedEventArgs e)
         {
+            Container.Score = player.Score;
             Frame.Navigate(typeof(FinishGamePage), player.Score);
         }
     }
