@@ -28,7 +28,7 @@ namespace Milionaire
         public NewPlayerPage()
         {
             this.InitializeComponent();
-            if (Container.Name != null) playerNameText.Text = Container.Name;
+            if (Container.Name != null) playerNameTextbox.Text = Container.Name;
         }
 
         /// <summary>
