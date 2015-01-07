@@ -25,8 +25,6 @@ namespace Milionaire
         public FinishGamePage()
         {
             this.InitializeComponent();
-
-       
         }
 
         /// <summary>
@@ -36,7 +34,7 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            int prize = Container.Score;
+            int prize = (int)e.Parameter;
             if (prize < 1000000) finalPhraseText.Text = "К сожалению, Вы не выиграли миллион.\nПопробуйте еще раз.";
             else finalPhraseText.Text = "Поздравляем!\nВы стали миллионером!";
             scoreText.Text += " " + prize;

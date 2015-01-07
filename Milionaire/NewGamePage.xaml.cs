@@ -31,9 +31,7 @@ namespace Milionaire
         int currentDifficulty;
         Player player;
         bool checkring = false;
-
         int numberofquestions;
-
         string correctAnswer;
 
         public NewgamePage()
