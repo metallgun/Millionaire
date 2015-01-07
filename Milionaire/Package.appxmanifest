@@ -16,7 +16,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Milionaire.App">
-      <m3:VisualElements DisplayName="Milionaire" Square150x150Logo="Assets/logo1.png" Square44x44Logo="Assets\SmallLogo.png" Description="Milionaire" ForegroundText="light" BackgroundColor="transparent">
+      <m3:VisualElements DisplayName="Millionaire" Square150x150Logo="Assets/logo1.png" Square44x44Logo="Assets\SmallLogo.png" Description="Millionaire" ForegroundText="light" BackgroundColor="transparent">
         <m3:DefaultTile Square71x71Logo="Assets\Square71x71Logo.png">
         </m3:DefaultTile>
         <m3:InitialRotationPreference>
