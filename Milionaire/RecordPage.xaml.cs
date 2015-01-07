@@ -72,62 +72,63 @@ namespace Milionaire
             if (local != null)
             {
                 // Get the DataFolder folder.
-                var dataFolder = await local.GetFolderAsync("playerFolder");
-
-                IReadOnlyList<StorageFile> filelist;
-                
-                filelist = await dataFolder.GetFilesAsync();
-                
-                foreach (StorageFile sf in filelist)
+                try
                 {
-                    string path = sf.Path;
-                    string filename = sf.Name;
+                    var dataFolder = await local.GetFolderAsync("playerFolder");
 
-                    string[] value;
-                    value = Regex.Split(filename, "File.txt");
+                    IReadOnlyList<StorageFile> filelist;
 
-                    var f = await dataFolder.OpenStreamForReadAsync(filename);
+                    filelist = await dataFolder.GetFilesAsync();
 
-                    using (StreamReader streamReader = new StreamReader(f))
+                    if (filelist.Count() != 0)
                     {
-                        int record = int.Parse(streamReader.ReadToEnd());
-                        Player newplayer = new Player
+                        foreach (StorageFile sf in filelist)
                         {
-                            Name = value[0],
-                            Score = record
-                        };
-                        recordsList.Add(newplayer);
-                        //scoreList.Add(record);
+                            string path = sf.Path;
+                            string filename = sf.Name;
+
+                            string[] value;
+                            value = Regex.Split(filename, "File.txt");
+
+                            var f = await dataFolder.OpenStreamForReadAsync(filename);
+
+                            using (StreamReader streamReader = new StreamReader(f))
+                            {
+                                int record = int.Parse(streamReader.ReadToEnd());
+                                Player newplayer = new Player
+                                {
+                                    Name = value[0],
+                                    Score = record
+                                };
+                                recordsList.Add(newplayer);
+                                //scoreList.Add(record);
+                            }
+                        }
+
+                        var query = from h in recordsList
+                                    orderby h.Score descending
+                                    select h;
+                        List<TextBlock> textblocklist = new List<TextBlock>();
+                        textblocklist.Add(FirstText);
+                        textblocklist.Add(SecondText);
+                        textblocklist.Add(ThirdText);
+                        textblocklist.Add(ForthText);
+                        textblocklist.Add(FifthText);
+
+                        for (int i = 0; i < recordsList.Count(); i++)
+                        {
+                            textblocklist[i].Text = query.ToList()[i].Name + " - " + query.ToList()[i].Score.ToString();
+                        }
+
+                    }
+                    }
+                    catch
+                    {
+                        FirstText.Text = "Рекордов пока нет";
                     }
                 }
-
-                var query = from h in recordsList
-                            orderby h.Score descending
-                            select h;
-                List<TextBlock> textblocklist = new List<TextBlock>();
-                textblocklist.Add(FirstText);
-                textblocklist.Add(SecondText);
-                textblocklist.Add(ThirdText);
-                textblocklist.Add(ForthText);
-                textblocklist.Add(FifthText);
-
-                for (int i = 0; i<5; i++)
-                {
-                    textblocklist[i].Text = query.ToList()[i].Name + " - " + query.ToList()[i].Score.ToString();
-                    //textblocklist[i].Text = query.ToList()[i].Score.ToString();
-                }
-
-                //// Get the file.
-                //var file = await dataFolder.OpenStreamForReadAsync("playerFile.txt");
-
-                //// Read the data.
-                //using (StreamReader streamReader = new StreamReader(file))
-                //{
-                //    this.FirstText.Text= streamReader.ReadToEnd();
-                //}
-
             }
-        }
+        
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {

@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Storage;
+using System.Threading.Tasks;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -45,6 +47,19 @@ namespace Milionaire
             // данное событие обрабатывается для вас.
         }
 
+        //private async Task CreateOrCheckFolder()
+        //{
+        //    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+        //    IReadOnlyList<StorageFile> filelist;
+
+        //    filelist = await local.GetFilesAsync();
+        //    if (filelist.Count == 0)
+        //    {
+        //        //создаем папку
+        //        var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
+        //    }
+        //}
 
         private void buttonNewGame_Click(object sender, RoutedEventArgs e)
         {

@@ -16,11 +16,11 @@
             </LinearGradientBrush>
         </Grid.Background>
         <TextBlock x:Name="recordsText" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="Рекорды игры" VerticalAlignment="Top" FontSize="36"/>
-        <TextBlock x:Name="FirstText" HorizontalAlignment="Left" Margin="20,130,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
-        <TextBlock x:Name="SecondText" HorizontalAlignment="Left" Margin="20,190,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
-        <TextBlock x:Name="ThirdText" HorizontalAlignment="Left" Margin="20,250,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
-        <TextBlock x:Name="ForthText" HorizontalAlignment="Left" Margin="20,310,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
-        <TextBlock x:Name="FifthText" HorizontalAlignment="Left" Margin="20,370,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
+        <TextBlock x:Name="FirstText" HorizontalAlignment="Left" Margin="20,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
+        <TextBlock x:Name="SecondText" HorizontalAlignment="Left" Margin="20,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
+        <TextBlock x:Name="ThirdText" HorizontalAlignment="Left" Margin="20,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
+        <TextBlock x:Name="ForthText" HorizontalAlignment="Left" Margin="20,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
+        <TextBlock x:Name="FifthText" HorizontalAlignment="Left" Margin="20,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" Height="70" FontSize="36"/>
         <Button x:Name="backButton" Content="Назад" HorizontalAlignment="Center" Margin="20,569,19,0" VerticalAlignment="Top" Width="361" Height="70" Click="backButton_Click"/>
         <Button x:Name="deleteButton" Content="Очистить" HorizontalAlignment="Center" Margin="20,513,19,0" VerticalAlignment="Top" Width="361" Height="70" Click="deleteButton_Click" Background="#FFC50000"/>
 
