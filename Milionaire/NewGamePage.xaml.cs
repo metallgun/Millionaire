@@ -203,8 +203,8 @@ namespace Milionaire
             //создаем папку
             var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
             //создаем файл
-            string filename = player.Name + "File.txt";
-            var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+            //string filename = player.Name + "File.txt";
+            var file = await playerFolder.CreateFileAsync("playerFile", CreationCollisionOption.ReplaceExisting);
 
             //пишем очки
             using (var s = await file.OpenStreamForWriteAsync())
@@ -368,9 +368,10 @@ namespace Milionaire
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void moneyButton_Click(object sender, RoutedEventArgs e)
+        private async void moneyButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Score = player.Score;
+            await WriteScoreToFile();
             Frame.Navigate(typeof(FinishGamePage), player.Score);
         }
     }
