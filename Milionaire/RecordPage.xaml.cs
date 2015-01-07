@@ -122,7 +122,7 @@ namespace Milionaire
 
                     }
                     }
-                    catch
+                    catch (FileNotFoundException)
                     {
                         FirstText.Text = "Рекордов пока нет";
                     }
