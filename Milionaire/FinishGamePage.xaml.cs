@@ -53,7 +53,7 @@ namespace Milionaire
             //создаем папку
             var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
             //создаем файл
-            string filename = player.Name + "File.txt";
+            string filename = Container.Name + "File.txt";
             var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
 
             //пишем очки

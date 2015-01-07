@@ -84,6 +84,7 @@ namespace Milionaire
                                 }
                             }
                             //await WriteScoreToFile(Container.Score);
+                            Container.Name = player.Name;
                             Frame.Navigate(typeof(FinishGamePage));
                         }
                     }
@@ -191,6 +192,7 @@ namespace Milionaire
                 Container.Quest = numberofquestions;
                 Frame.Navigate(typeof(FinishGamePage));
                 //await WriteScoreToFile(Container.Score);
+                Container.Name = player.Name;
             }
         }
 
@@ -369,11 +371,12 @@ namespace Milionaire
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void moneyButton_Click(object sender, RoutedEventArgs e)
+        private void moneyButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Score = player.Score;
-            await WriteScoreToFile(Container.Score);
-            Frame.Navigate(typeof(FinishGamePage), player.Score);
+            Container.Name = player.Name;
+            //await WriteScoreToFile(Container.Score);
+            Frame.Navigate(typeof(FinishGamePage));
         }
     }
 }
