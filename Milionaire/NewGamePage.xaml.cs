@@ -73,7 +73,8 @@ namespace Milionaire
                         //Правильный ответ
                         if (b.Content.ToString() == correctAnswer)
                         {
-                            b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                            Color(b);
+                            //b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                             //Sleep(3000);
                             AddingScore();
                             FillFeilds(1);
@@ -90,6 +91,8 @@ namespace Milionaire
                                     b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                                 }
                             }
+                            //await WriteScoreToFile(Container.Score);
+                            Frame.Navigate(typeof(FinishGamePage));
                         }
                     }
                 };
@@ -107,6 +110,15 @@ namespace Milionaire
             player = (Player)e.Parameter;
             nameText.Text = player.Name;
             scoreText.Text = player.Score.ToString();
+        }
+
+        private async void Color(Button button)
+        {
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    //button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                });
+            //Sleep(3000);
         }
 
         //Заполнение полей
@@ -163,7 +175,7 @@ namespace Milionaire
             numberofquestions += 1;
         }
 
-        private async void AddingScore()
+        private void AddingScore()
         {
             if (player.Score == 0)
                 player.Score = 100;
@@ -188,13 +200,12 @@ namespace Milionaire
                 Frame.Navigate(typeof(FinishGamePage), player.Score);
                 await WriteScoreToFile();
             }
-
         }
 
-        private async Task WriteScoreToFile()
+        private async Task WriteScoreToFile(int score)
         {
             //создаем массив очков
-            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((player.Score.ToString()).ToCharArray());
+            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((score.ToString()).ToCharArray());
 
             StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
@@ -356,11 +367,11 @@ namespace Milionaire
             {
                 int before = rightPerc;
                 for (int j = 0; j < i; j++) before += wrongPerc[j];
-                wrongPerc[i] = (new Random()).Next((100 - before));
-            }
+                    wrongPerc[i] = (new Random()).Next((100 - before));
+            } 
             int before1 = rightPerc;
-            for (int j = 0; j < wrongPerc.Count() - 1; j++) before1 += wrongPerc[j];
-            wrongPerc[i] = 100 - before1;
+                for (int j = 0; j < wrongPerc.Count() - 1; j++) before1 += wrongPerc[j];
+                wrongPerc[i] = 100 - before1;
 
             foreach (var a in rectList)
             {
@@ -387,9 +398,10 @@ namespace Milionaire
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void moneyButton_Click(object sender, RoutedEventArgs e)
+        private async void moneyButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Score = player.Score;
+            await WriteScoreToFile(Container.Score);
             Frame.Navigate(typeof(FinishGamePage), player.Score);
         }
     }
