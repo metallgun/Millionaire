@@ -67,6 +67,7 @@ namespace Milionaire
             Container.Aud = true;
             Container.Ring = true;
             Container.Score = 0;
+            Container.Quest = 0;
             Frame.Navigate(typeof(NewPlayerPage));
         }
 
