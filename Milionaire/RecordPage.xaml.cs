@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using System.Collections;
 using System.Text.RegularExpressions;
+using Windows.UI.Popups;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -135,9 +136,53 @@ namespace Milionaire
             Frame.GoBack();
         }
 
-        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        private async void deleteButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                #region Удаление всех элементов в папке 
+                //StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
+                //if (local != null)
+                //{
+
+                //    var dataFolder = await local.GetFolderAsync("playerFolder");
+
+                //    IReadOnlyList<StorageFile> filelist;
+
+                //    filelist = await dataFolder.GetFilesAsync();
+
+                //    if (filelist.Count() != 0)
+                //    {
+                //        foreach (StorageFile sf in filelist)
+                //        {
+                //            string path = sf.Path;
+                //            string filename = sf.Name;
+
+                //            var f = await dataFolder.GetFileAsync(filename);
+                //            await f.DeleteAsync(StorageDeleteOption.PermanentDelete);
+                //        }
+                //    }
+                //}
+                #endregion
+
+                var folder = await ApplicationData.Current.LocalFolder.GetFolderAsync("playerFolder");
+                await folder.DeleteAsync(StorageDeleteOption.PermanentDelete);
+
+                ShowMessagebox("Рекорды были удалены.");
+                Frame.Navigate(typeof(MainPage));
+            }
+            catch
+            {
+                ShowMessagebox("Рекордов пока нет.");
+                Frame.Navigate(typeof(MainPage));
+            }
+        }
+
+        private async void ShowMessagebox(string a)
+        {
+            MessageDialog msg = new MessageDialog(a); //по хорошему нужно ex.message Но я хз как это сделать лол
+            await msg.ShowAsync();
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)

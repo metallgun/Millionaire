@@ -25,6 +25,7 @@ namespace Milionaire
     public sealed partial class FinishGamePage : Page
     {
         string playerName;
+        int prevScore;
 
         public FinishGamePage()
         {
@@ -41,11 +42,46 @@ namespace Milionaire
             Container.Quest = 0;
             playerName = Container.Name;
             int prize = Container.Score;
-            await WriteScoreToFile(playerName, prize);
+            await GetPrevRecord();
+            if (prize >= prevScore)
+            {
+                await WriteScoreToFile(playerName, prize);
+            }
             if (prize < 1000000) finalPhraseText.Text = "К сожалению, Вы не выиграли миллион.\nПопробуйте еще раз.";
             else finalPhraseText.Text = "Поздравляем!\nВы стали миллионером!";
             scoreText.Text += " " + prize;
         }
+
+        private async Task GetPrevRecord()
+        {
+            try
+            {
+                // Get the local folder.
+                StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+                if (local != null)
+                {
+                    // Get the DataFolder folder.
+                    var dataFolder = await local.GetFolderAsync("playerFolder");
+
+                    // Get the file.
+                    string filename = playerName + "File.txt";
+                    var file = await dataFolder.OpenStreamForReadAsync(filename);
+
+                    // Read the data.
+                    using (StreamReader streamReader = new StreamReader(file))
+                    {
+                        prevScore = int.Parse(streamReader.ReadToEnd());
+                    }
+                }
+            }
+            catch
+            {
+                prevScore = 0;
+            }
+        }
+        
+        
 
         private async Task WriteScoreToFile(string name, int score)
         {
