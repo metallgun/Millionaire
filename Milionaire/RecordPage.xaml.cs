@@ -27,7 +27,6 @@ namespace Milionaire
         public RecordPage()
         {
             this.InitializeComponent();
-
         }
 
         /// <summary>
@@ -37,6 +36,7 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
         }
 
         private async Task ReadFile()
@@ -69,6 +69,11 @@ namespace Milionaire
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private async void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            await ReadFile();
         }
     }
 }

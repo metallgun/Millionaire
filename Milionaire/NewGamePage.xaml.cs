@@ -204,7 +204,7 @@ namespace Milionaire
             var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
             //создаем файл
             //string filename = player.Name + "File.txt";
-            var file = await playerFolder.CreateFileAsync("playerFile", CreationCollisionOption.ReplaceExisting);
+            var file = await playerFolder.CreateFileAsync("playerFile.txt", CreationCollisionOption.ReplaceExisting);
 
             //пишем очки
             using (var s = await file.OpenStreamForWriteAsync())
