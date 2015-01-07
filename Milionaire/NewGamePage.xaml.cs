@@ -65,7 +65,8 @@ namespace Milionaire
                         //Правильный ответ
                         if (b.Content.ToString() == correctAnswer)
                         {
-                            b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                            Color(b);
+                            //b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                             //Sleep(3000);
                             AddingScore();
                             FillFeilds(1);
@@ -100,6 +101,15 @@ namespace Milionaire
             player = (Player)e.Parameter;
             nameText.Text = player.Name;
             scoreText.Text = player.Score.ToString();
+        }
+
+        private async void Color(Button button)
+        {
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    //button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                });
+            //Sleep(3000);
         }
 
         //Заполнение полей
@@ -180,9 +190,7 @@ namespace Milionaire
                 Container.Quest = numberofquestions;
                 Frame.Navigate(typeof(FinishGamePage));
                 await WriteScoreToFile();
-                
             }
-
         }
 
         private async Task WriteScoreToFile()
