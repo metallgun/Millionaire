@@ -82,6 +82,7 @@ namespace Milionaire
                                     b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                                 }
                             }
+                            Frame.Navigate(typeof(FinishGamePage));
                         }
                     }
                 };
@@ -177,7 +178,7 @@ namespace Milionaire
             {
                 Container.Score = player.Score;
                 Container.Quest = numberofquestions;
-                Frame.Navigate(typeof(FinishGamePage), player.Score);
+                Frame.Navigate(typeof(FinishGamePage));
                 await WriteScoreToFile();
                 
             }
