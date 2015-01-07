@@ -38,6 +38,25 @@ namespace Milionaire
         {
 
         }
+        private async Task WriteScoreToFile(string name, int score)
+        {
+            //создаем массив очков
+            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((score.ToString()).ToCharArray());
+
+            StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+            //создаем папку
+            var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
+            //создаем файл
+            string filename = name + "File.txt";
+            var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+            //пишем очки
+            using (var s = await file.OpenStreamForWriteAsync())
+            {
+                s.Write(fileBytes, 0, fileBytes.Length);
+            }
+        }
 
         private async Task ReadFile()
         {

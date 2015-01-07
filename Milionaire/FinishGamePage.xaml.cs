@@ -24,6 +24,8 @@ namespace Milionaire
     /// </summary>
     public sealed partial class FinishGamePage : Page
     {
+        string playerName;
+
         public FinishGamePage()
         {
             this.InitializeComponent();
@@ -34,16 +36,18 @@ namespace Milionaire
         /// </summary>
         /// <param name="e">Данные события, описывающие, каким образом была достигнута эта страница.
         /// Этот параметр обычно используется для настройки страницы.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             Container.Quest = 0;
+            playerName = Container.Name;
             int prize = Container.Score;
+            await WriteScoreToFile(playerName, prize);
             if (prize < 1000000) finalPhraseText.Text = "К сожалению, Вы не выиграли миллион.\nПопробуйте еще раз.";
             else finalPhraseText.Text = "Поздравляем!\nВы стали миллионером!";
             scoreText.Text += " " + prize;
         }
 
-        private async Task WriteScoreToFile(int score)
+        private async Task WriteScoreToFile(string name, int score)
         {
             //создаем массив очков
             byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((score.ToString()).ToCharArray());
@@ -53,7 +57,7 @@ namespace Milionaire
             //создаем папку
             var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
             //создаем файл
-            string filename = Container.Name + "File.txt";
+            string filename = name + "File.txt";
             var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
 
             //пишем очки
