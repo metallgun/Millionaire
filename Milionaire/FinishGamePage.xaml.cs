@@ -25,8 +25,6 @@ namespace Milionaire
         public FinishGamePage()
         {
             this.InitializeComponent();
-
-       
         }
 
         /// <summary>

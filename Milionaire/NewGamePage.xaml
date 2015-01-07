@@ -22,7 +22,16 @@
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         <TextBlock x:Name="questionText" Grid.Row="1" HorizontalAlignment="Center" Margin="20,10,19,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="23" Width="361" />
-        <Button x:Name="answerButton1" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,1,0,0" VerticalAlignment="Top" Width="361" />
+        <Button x:Name="answerButton1" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,1,0,0" VerticalAlignment="Top" Width="361" >
+            <Rectangle x:Name="rectangle1" Height="70" Width="361" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF00FF23" Offset="0"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Button>
         <Button x:Name="answerButton2" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,57,0,0" VerticalAlignment="Top" Width="361"/>
         <Button x:Name="answerButton3" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,113,0,0" VerticalAlignment="Top" Width="361"/>
         <Button x:Name="answerButton4" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,169,0,0" VerticalAlignment="Top" Width="361"/>
