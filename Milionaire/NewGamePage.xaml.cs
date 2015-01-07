@@ -356,38 +356,61 @@ namespace Milionaire
         /// <param name="e"></param>
         private void audButton_Click(object sender, RoutedEventArgs e)
         {
-            int rightPerc, i, count = 0,j1=0;
+            int rightPerc, i, count = 0,j1=0,before;
             foreach (Button b in answerButtons)
             {
                 if (b.IsEnabled) count++;
             }
             int[] wrongPerc = new int[count - 1];
-            if (currentDifficulty == 1) rightPerc = (new Random()).Next(60, 90);
-            else if (currentDifficulty == 2) rightPerc = (new Random()).Next(30, 70);
-            else rightPerc = (new Random()).Next(10, 50);
-            for (i = 0; i < wrongPerc.Count() - 1; i++)
+            if (count == 2)
             {
-                int before = rightPerc;
-                for (int j = 0; j < i; j++) before += wrongPerc[j];
+                rightPerc = (new Random()).Next(45, 90);
+                before = rightPerc;
+                wrongPerc[0] = 100 - before;
+            }
+            else
+            {
+                if (currentDifficulty == 1) rightPerc = (new Random()).Next(60, 90);
+                else if (currentDifficulty == 2) rightPerc = (new Random()).Next(30, 70);
+                else rightPerc = (new Random()).Next(10, 50);
+                for (i = 0; i < wrongPerc.Count() - 1; i++)
+                {
+                    before = rightPerc;
+                    for (int j = 0; j < i; j++) before += wrongPerc[j];
                     wrongPerc[i] = (new Random()).Next((100 - before));
-            } 
-            int before1 = rightPerc;
+                }
+                int before1 = rightPerc;
                 for (int j = 0; j < wrongPerc.Count() - 1; j++) before1 += wrongPerc[j];
                 wrongPerc[i] = 100 - before1;
-
-            foreach (var a in rectList)
-            {
-                a.Visibility = Visibility.Visible;
             }
 
-            for(int i1 = 0; i1<answerButtons.Count; i1++)
+            for (int i2 = 0; i2 < answerButtons.Count; i2++ )
             {
-                if (answerButtons[i1].Content.ToString() == correctAnswer)
-                    rectList[i1].Width = (rectList[i1].Width * rightPerc)/100;
-                else
+                rectList[i2].Visibility = Visibility.Visible;
+                if (!answerButtons[i2].IsEnabled)
+                    rectList[i2].Visibility = Visibility.Collapsed;
+            }
+
+            if (count == 2)
+            {
+                for (int i2 = 0; i2 < answerButtons.Count; i2++)
+                    if (answerButtons[i2].IsEnabled)
+                        if (answerButtons[i2].Content.ToString() == correctAnswer)
+                            rectList[i2].Width = (rectList[i2].Width * rightPerc) / 100;
+                        else rectList[i2].Width = (rectList[i2].Width * wrongPerc[0]) / 100;
+
+            }
+            else
+            {
+                for (int i1 = 0; i1 < answerButtons.Count; i1++)
                 {
-                    rectList[i1].Width = (rectList[i1].Width * wrongPerc[j1])/100;
-                    j1++;
+                    if (answerButtons[i1].Content.ToString() == correctAnswer)
+                        rectList[i1].Width = (rectList[i1].Width * rightPerc) / 100;
+                    else
+                    {
+                        rectList[i1].Width = (rectList[i1].Width * wrongPerc[j1]) / 100;
+                        j1++;
+                    }
                 }
             }
             audbutton.Visibility = Visibility.Collapsed;
