@@ -48,6 +48,9 @@ namespace Milionaire
 
         private void buttonNewGame_Click(object sender, RoutedEventArgs e)
         {
+            Container._5050 = true;
+            Container.Aud = true;
+            Container.Ring = true;
             Frame.Navigate(typeof(NewPlayerPage));
         }
 

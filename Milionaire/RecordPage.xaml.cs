@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using Windows.Storage;
+using System.Collections;
+using System.Text.RegularExpressions;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -24,6 +26,9 @@ namespace Milionaire
     /// </summary>
     public sealed partial class RecordPage : Page
     {
+        List<int> scoreList = new List<int>();
+        List<Player> recordsList = new List<Player>();
+
         public RecordPage()
         {
             this.InitializeComponent();
@@ -63,19 +68,63 @@ namespace Milionaire
             // Get the local folder.
             StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
+            
             if (local != null)
             {
                 // Get the DataFolder folder.
                 var dataFolder = await local.GetFolderAsync("playerFolder");
 
-                // Get the file.
-                var file = await dataFolder.OpenStreamForReadAsync("playerFile.txt");
-
-                // Read the data.
-                using (StreamReader streamReader = new StreamReader(file))
+                IReadOnlyList<StorageFile> filelist;
+                
+                filelist = await dataFolder.GetFilesAsync();
+                
+                foreach (StorageFile sf in filelist)
                 {
-                    this.FirstText.Text= streamReader.ReadToEnd();
+                    string path = sf.Path;
+                    string filename = sf.Name;
+
+                    string[] value;
+                    value = Regex.Split(filename, "File.txt");
+
+                    var f = await dataFolder.OpenStreamForReadAsync(filename);
+
+                    using (StreamReader streamReader = new StreamReader(f))
+                    {
+                        int record = int.Parse(streamReader.ReadToEnd());
+                        Player newplayer = new Player
+                        {
+                            Name = value[0],
+                            Score = record
+                        };
+                        recordsList.Add(newplayer);
+                        //scoreList.Add(record);
+                    }
                 }
+
+                var query = from h in recordsList
+                            orderby h.Score descending
+                            select h;
+                List<TextBlock> textblocklist = new List<TextBlock>();
+                textblocklist.Add(FirstText);
+                textblocklist.Add(SecondText);
+                textblocklist.Add(ThirdText);
+                textblocklist.Add(ForthText);
+                textblocklist.Add(FifthText);
+
+                for (int i = 0; i<5; i++)
+                {
+                    textblocklist[i].Text = query.ToList()[i].Name + " - " + query.ToList()[i].Score.ToString();
+                    //textblocklist[i].Text = query.ToList()[i].Score.ToString();
+                }
+
+                //// Get the file.
+                //var file = await dataFolder.OpenStreamForReadAsync("playerFile.txt");
+
+                //// Read the data.
+                //using (StreamReader streamReader = new StreamReader(file))
+                //{
+                //    this.FirstText.Text= streamReader.ReadToEnd();
+                //}
 
             }
         }
