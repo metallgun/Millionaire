@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using Windows.Storage;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -82,14 +83,17 @@ namespace Milionaire
                     string path = sf.Path;
                     string filename = sf.Name;
 
-                    var f = await dataFolder.OpenStreamForReadAsync(path);
+                    string[] value;
+                    value = Regex.Split(filename, "File.txt");
+
+                    var f = await dataFolder.OpenStreamForReadAsync(filename);
 
                     using (StreamReader streamReader = new StreamReader(f))
                     {
                         int record = int.Parse(streamReader.ReadToEnd());
                         Player newplayer = new Player
                         {
-                            Name = path,
+                            Name = value[0],
                             Score = record
                         };
                         recordsList.Add(newplayer);
@@ -109,7 +113,8 @@ namespace Milionaire
 
                 for (int i = 0; i<5; i++)
                 {
-                    textblocklist[i].Text = query.ToList()[i].Name + " - " + query.ToList()[i].Score;
+                    textblocklist[i].Text = query.ToList()[i].Name + " - " + query.ToList()[i].Score.ToString();
+                    //textblocklist[i].Text = query.ToList()[i].Score.ToString();
                 }
 
                 //// Get the file.
