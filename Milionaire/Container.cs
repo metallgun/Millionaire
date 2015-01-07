@@ -9,5 +9,6 @@ namespace Milionaire
     class Container
     {
         public static int Score, Quest;
+        public static string Name;
     }
 }
