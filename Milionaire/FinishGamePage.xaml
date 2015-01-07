@@ -16,9 +16,9 @@
             </LinearGradientBrush>
         </Grid.Background>
         <TextBlock x:Name="finalPhraseText" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Final phrase goes here" VerticalAlignment="Top" FontSize="36" Foreground="White"/>
-        <TextBlock x:Name="scoreText" HorizontalAlignment="Center" Margin="68,200,76,0" TextWrapping="Wrap" Text="Ваш выигрыш составил " VerticalAlignment="Top" FontSize="22" Width="256" Foreground="White"/>
-        <Button x:Name="endButton" Content="В главное меню" HorizontalAlignment="Center" Margin="19,433,20,0" VerticalAlignment="Top" Width="361" Height="70" Click="endButton_Click"/>
-        <Button x:Name="recordsButton" Content="Рекорды" HorizontalAlignment="Center" Margin="19,358,20,0" VerticalAlignment="Top" Width="361" Height="70" Click="recordsButton_Click"/>
-        <Button x:Name="exitButton" Content="Выйти" HorizontalAlignment="Center" Margin="19,512,20,0" VerticalAlignment="Top" Width="361" Height="70" Click="exitButton_Click"/>
+        <TextBlock x:Name="scoreText" HorizontalAlignment="Center" Margin="70,250,70,0" TextWrapping="Wrap" Text="Ваш выигрыш составил " VerticalAlignment="Top" FontSize="22" Width="256" Foreground="White"/>
+        <Button x:Name="endButton" Content="В главное меню" HorizontalAlignment="Center" Margin="19,512,20,0" VerticalAlignment="Top" Width="361" Height="70" Click="endButton_Click"/>
+        <Button x:Name="recordsButton" Content="Рекорды" HorizontalAlignment="Center" Margin="19,433,20,0" VerticalAlignment="Top" Width="361" Height="70" Click="recordsButton_Click"/>
+        <Button x:Name="playAgainButton" Content="Играть заново" HorizontalAlignment="Center" Margin="19,358,20,0" VerticalAlignment="Top" Width="361" Height="70" Click="exitButton_Click"/>
     </Grid>
 </Page>

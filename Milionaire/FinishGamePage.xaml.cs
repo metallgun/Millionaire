@@ -115,7 +115,19 @@ namespace Milionaire
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Exit();
+            var pc = new Player()
+            {
+                Name = playerName,
+                Score = 0
+            };
+
+            Container._5050 = true;
+            Container.Aud = true;
+            Container.Ring = true;
+            Container.Score = 0;
+            Container.Quest = 0;
+
+            Frame.Navigate(typeof(NewgamePage), pc);
         }
     }
 }
