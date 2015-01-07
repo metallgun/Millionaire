@@ -53,6 +53,25 @@ namespace Milionaire
             rectList.Add(aud3);
             rectList.Add(aud4);
 
+            if (!Container._5050)
+            {
+                _5050button.Visibility = Visibility.Collapsed;
+                _5050button1.Visibility = Visibility.Collapsed;
+                _5050XImage.Visibility = Visibility.Visible;
+            }
+            if (!Container.Ring)
+            {
+                ringbutton.Visibility = Visibility.Collapsed;
+                ringButton.Visibility = Visibility.Collapsed;
+                ringbuttonX.Visibility = Visibility.Visible;
+            }
+            if (!Container.Aud)
+            {
+                audbutton.Visibility = Visibility.Collapsed;
+                audButton.Visibility = Visibility.Collapsed;
+                audXImage.Visibility = Visibility.Visible;
+            }
+
             foreach (Button b in answerButtons)
             {
                 b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
