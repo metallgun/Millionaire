@@ -361,6 +361,7 @@ namespace Milionaire
         /// <param name="e"></param>
         private void moneyButton_Click(object sender, RoutedEventArgs e)
         {
+            Container.Score = player.Score;
             Frame.Navigate(typeof(FinishGamePage), player.Score);
         }
     }
