@@ -16,19 +16,7 @@
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         <TextBlock x:Name="questionText" Grid.Row="1" HorizontalAlignment="Center" Margin="20,10,19,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="23" Width="361" />
-        <Button x:Name="answerButton1" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,1,0,0" VerticalAlignment="Top" Width="361" >
-            <Rectangle x:Name="rectangle1" Height="70" Width="361" >
-                <Rectangle.Fill>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF00FF23" Offset="1"/>
-                        <GradientStop Color="Red"/>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-        </Button>
-        <Button x:Name="answerButton2" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,57,0,0" VerticalAlignment="Top" Width="361"/>
-        <Button x:Name="answerButton3" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,113,0,0" VerticalAlignment="Top" Width="361"/>
-        <Button x:Name="answerButton4" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,169,0,0" VerticalAlignment="Top" Width="361"/>
+
         <Image HorizontalAlignment="Right" Height="40" Margin="0,0,20,0" VerticalAlignment="Top" Width="40" Source="Assets/optionslogo.png"/>
         <Image x:Name="_5050button" HorizontalAlignment="Left" Height="60" Margin="19,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Source="Assets/5050.png" Stretch="Fill"/>
         <Image x:Name="ringbutton" HorizontalAlignment="Center" Height="60" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Source="Assets/ring.png" Stretch="Fill"/>
@@ -46,6 +34,13 @@
         <Image x:Name="audXImage" HorizontalAlignment="Left" Height="60" Margin="280,10,0,-10" Grid.Row="3" VerticalAlignment="Top" Width="100" Stretch="Fill" Source="Assets/audX.png" Visibility="Collapsed"/>
         <Image x:Name="moneyImage" HorizontalAlignment="Left" Height="60" Margin="280,245,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Stretch="Fill" Source="Assets/Mney.png"/>
         <Button x:Name="moneyButton" Content="Button" HorizontalAlignment="Left" Height="85" Margin="268,235,0,0" Grid.Row="2" VerticalAlignment="Top" Width="121" Opacity="0" Click="moneyButton_Click"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="-350,97,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
+        <Rectangle x:Name="aud1" Margin="20,10,20,269" Grid.Row="2" Width="359" HorizontalAlignment="Center" Fill="Orange" Visibility="Collapsed"/>
+        <Rectangle x:Name="aud2" Margin="20,67,20,212" Grid.Row="2" Width="359" HorizontalAlignment="Center" Fill="Orange" Visibility="Collapsed"/>
+        <Rectangle x:Name="aud3" Margin="21,123,20,156" Grid.Row="2" Width="359" HorizontalAlignment="Center" Fill="Orange" Visibility="Collapsed"/>
+        <Rectangle x:Name="aud4" Margin="21,179,20,101" Grid.Row="2" Width="359" HorizontalAlignment="Center" Fill="Orange" Visibility="Collapsed"/>
+        <Button x:Name="answerButton1" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,0,0,0" VerticalAlignment="Top" Width="361" />
+        <Button x:Name="answerButton2" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,57,0,0" VerticalAlignment="Top" Width="361"/>
+        <Button x:Name="answerButton3" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,113,0,0" VerticalAlignment="Top" Width="361"/>
+        <Button x:Name="answerButton4" Grid.Row="2" HorizontalAlignment="Left" Height="70" Margin="19,169,0,0" VerticalAlignment="Top" Width="361"/>
     </Grid>
 </Page>
