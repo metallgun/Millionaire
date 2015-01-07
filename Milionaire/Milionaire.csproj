@@ -117,11 +117,13 @@
     <Content Include="Assets\106.png" />
     <Content Include="Assets\120.png" />
     <Content Include="Assets\150.png" />
+    <Content Include="Assets\170.png" />
     <Content Include="Assets\210.png" />
     <Content Include="Assets\360.png" />
     <Content Include="Assets\5050.png" />
     <Content Include="Assets\5050chosen.png" />
     <Content Include="Assets\5050X.png" />
+    <Content Include="Assets\58.scale-240.png" />
     <Content Include="Assets\640x400.jpg" />
     <Content Include="Assets\gear.png" />
     <Content Include="Assets\Logo.scale-240.png" />
