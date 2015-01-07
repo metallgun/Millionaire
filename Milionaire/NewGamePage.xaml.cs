@@ -38,6 +38,8 @@ namespace Milionaire
 
         public NewgamePage()
         {
+            
+
             this.InitializeComponent();
 
             phoneDialog.Visibility = Visibility.Collapsed;
@@ -108,6 +110,9 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            player = (Player)e.Parameter;
+            nameText.Text = player.Name;
+            scoreText.Text = player.Score.ToString();
             if (!Container._5050)
             {
                 _5050button.Visibility = Visibility.Collapsed;
@@ -126,9 +131,6 @@ namespace Milionaire
                 audButton.Visibility = Visibility.Collapsed;
                 audXImage.Visibility = Visibility.Visible;
             }
-            player = (Player)e.Parameter;
-            nameText.Text = player.Name;
-            scoreText.Text = player.Score.ToString();
         }
 
         private async void Color(Button button)
