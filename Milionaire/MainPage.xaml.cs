@@ -55,5 +55,10 @@ namespace Milionaire
         {
             Frame.Navigate(typeof(RecordPage));
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
     }
 }

@@ -15,9 +15,10 @@
                 <GradientStop Color="#FF0949A4" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="buttonRecords" Content="Рекорды" HorizontalAlignment="Center" Margin="19,507,20,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="{x:Null}" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Width="361" Height="70" Click="buttonRecords_Click"/>
-        <Button x:Name="hpbtnNewGame" Foreground="White" BorderBrush="White" Background="{x:Null}" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Новая Игра" HorizontalAlignment="Center" Margin="19,438,20,0" VerticalAlignment="Top" FontWeight="Bold" Click="buttonNewGame_Click" Width="361" Height="70" BorderThickness="2.5"/>
+        <Button x:Name="buttonRecords" Content="Рекорды" HorizontalAlignment="Center" Margin="19,480,20,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="{x:Null}" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Width="361" Height="70" Click="buttonRecords_Click"/>
+        <Button x:Name="hpbtnNewGame" Foreground="White" BorderBrush="White" Background="{x:Null}" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Content="Новая Игра" HorizontalAlignment="Center" Margin="19,409,20,0" VerticalAlignment="Top" FontWeight="Bold" Click="buttonNewGame_Click" Width="361" Height="70" BorderThickness="2.5"/>
         <Image HorizontalAlignment="Center" Height="361" Margin="19,10,20,0" VerticalAlignment="Top" Width="361" Source="Assets/logo1.png" Stretch="Fill"/>
+        <Button x:Name="btnExit" Content="Выход" HorizontalAlignment="Center" Margin="19,550,20,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="{x:Null}" FontSize="22" IsDoubleTapEnabled="False" IsRightTapEnabled="False" Width="361" Height="70" Click="btnExit_Click"/>
 
     </Grid>
 </Page>
