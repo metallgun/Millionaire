@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.Storage;
+using Windows.UI.Xaml.Shapes;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -66,6 +67,7 @@ namespace Milionaire
                         if (b.Content.ToString() == correctAnswer)
                         {
                             Color(b);
+                            //Task.Run(Color(b));
                             //b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                             //Sleep(3000);
                             AddingScore();
@@ -104,11 +106,14 @@ namespace Milionaire
         }
 
         private async void Color(Button button)
+        { await ColorTask(button); }
+
+        private async Task ColorTask(Button button)
         {
-            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                {
-                    //button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                });
+            await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                //button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+            });
             //Sleep(3000);
         }
 
