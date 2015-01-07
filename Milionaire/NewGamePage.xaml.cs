@@ -83,6 +83,7 @@ namespace Milionaire
                                     b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                                 }
                             }
+                            //await WriteScoreToFile(Container.Score);
                             Frame.Navigate(typeof(FinishGamePage));
                         }
                     }
@@ -166,7 +167,7 @@ namespace Milionaire
             numberofquestions += 1;
         }
 
-        private async void AddingScore()
+        private void AddingScore()
         {
             if (player.Score == 0)
                 player.Score = 100;
@@ -189,22 +190,22 @@ namespace Milionaire
                 Container.Score = player.Score;
                 Container.Quest = numberofquestions;
                 Frame.Navigate(typeof(FinishGamePage));
-                await WriteScoreToFile();
+                //await WriteScoreToFile(Container.Score);
             }
         }
 
-        private async Task WriteScoreToFile()
+        private async Task WriteScoreToFile(int score)
         {
             //создаем массив очков
-            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((player.Score.ToString()).ToCharArray());
+            byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes((score.ToString()).ToCharArray());
 
             StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
             //создаем папку
             var playerFolder = await local.CreateFolderAsync("playerFolder", CreationCollisionOption.OpenIfExists);
             //создаем файл
-            //string filename = player.Name + "File.txt";
-            var file = await playerFolder.CreateFileAsync("playerFile.txt", CreationCollisionOption.ReplaceExisting);
+            string filename = player.Name + "File.txt";
+            var file = await playerFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
 
             //пишем очки
             using (var s = await file.OpenStreamForWriteAsync())
@@ -371,7 +372,7 @@ namespace Milionaire
         private async void moneyButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Score = player.Score;
-            await WriteScoreToFile();
+            await WriteScoreToFile(Container.Score);
             Frame.Navigate(typeof(FinishGamePage), player.Score);
         }
     }
