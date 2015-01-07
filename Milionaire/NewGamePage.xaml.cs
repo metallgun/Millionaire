@@ -108,6 +108,24 @@ namespace Milionaire
         /// Этот параметр обычно используется для настройки страницы.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (!Container._5050)
+            {
+                _5050button.Visibility = Visibility.Collapsed;
+                _5050button1.Visibility = Visibility.Collapsed;
+                _5050XImage.Visibility = Visibility.Visible;
+            }
+            if (!Container.Ring)
+            {
+                ringbutton.Visibility = Visibility.Collapsed;
+                ringButton.Visibility = Visibility.Collapsed;
+                ringbuttonX.Visibility = Visibility.Visible;
+            }
+            if (!Container.Aud)
+            {
+                audbutton.Visibility = Visibility.Collapsed;
+                audButton.Visibility = Visibility.Collapsed;
+                audXImage.Visibility = Visibility.Visible;
+            }
             player = (Player)e.Parameter;
             nameText.Text = player.Name;
             scoreText.Text = player.Score.ToString();
@@ -292,6 +310,7 @@ namespace Milionaire
             _5050button1.IsEnabled = false;
             _5050button.Visibility = Visibility.Collapsed;
             _5050XImage.Visibility = Visibility.Visible;
+            Container._5050 = false;
         }
 
         /// <summary>
@@ -347,6 +366,7 @@ namespace Milionaire
             ringbutton.Visibility = Visibility.Collapsed;
             ringbuttonX.Visibility = Visibility.Visible;
             checkring = true;
+            Container.Ring = false;
         }
 
         /// <summary>
@@ -393,6 +413,7 @@ namespace Milionaire
             audbutton.Visibility = Visibility.Collapsed;
             audXImage.Visibility = Visibility.Visible;
             audButton.IsEnabled = false;
+            Container.Aud = false;
         }
 
         /// <summary>

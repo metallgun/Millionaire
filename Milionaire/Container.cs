@@ -10,5 +10,6 @@ namespace Milionaire
     {
         public static int Score, Quest;
         public static string Name;
+        public static bool _5050, Ring, Aud;
     }
 }
