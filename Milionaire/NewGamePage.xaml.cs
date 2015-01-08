@@ -80,7 +80,7 @@ namespace Milionaire
                             //Sleep(3000);
                             AddingScore();
                             FillFeilds(1);
-                            if (checkring == true) phoneDialog.Visibility = Visibility.Collapsed;
+                            if (checkring) phoneDialog.Visibility = Visibility.Collapsed;
                         }
                         //Неправильный ответ
                         else
@@ -94,7 +94,7 @@ namespace Milionaire
                                 }
                             }
                             //await WriteScoreToFile(Container.Score);
-                            Container.Name = player.Name;
+                            //Container.Name = player.Name;
                             Frame.Navigate(typeof(FinishGamePage));
                         }
                     }
@@ -219,8 +219,6 @@ namespace Milionaire
                 Container.Score = player.Score;
                 Container.Quest = numberofquestions;
                 Frame.Navigate(typeof(FinishGamePage));
-                //await WriteScoreToFile(Container.Score);
-                Container.Name = player.Name;
             }
         }
 
@@ -243,49 +241,6 @@ namespace Milionaire
                 s.Write(fileBytes, 0, fileBytes.Length);
             }
         }
-
-        //private void Clicks()
-        //{
-        //    foreach (Button b in answerButtons)
-        //    {
-        //        b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
-        //        b.Background.Opacity = 0;
-        //        b.Visibility = Visibility.Visible;
-        //        b.Click += (sender, e) =>
-        //        {
-        //            //b.ClickMode = ClickMode.Press;
-        //            //foreach (Button but in answerButtons)
-        //            //{
-        //            //    but.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
-        //            //    but.Background.Opacity = 0;
-        //            //}
-        //            b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-        //            b.Background.Opacity = 1;
-                    
-        //            //if (b.Background.Opacity == 1)
-        //            //{
-        //            //    if (b.Content.ToString() == correctAnswer)
-        //            //    {
-        //            //        b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                            
-        //            //        Sleep(5000);
-        //            //        FillFeilds(1);
-        //            //    }
-        //            //    else
-        //            //    {
-        //            //        b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-        //            //        foreach (Button b1 in answerButtons)
-        //            //        {
-        //            //            if (b1.Content.ToString() == correctAnswer)
-        //            //            {
-        //            //                b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-        //            //            }
-        //            //        }
-        //            //    }
-        //            //}
-        //        };
-        //    }
-        //}
 
         private void Sleep(int ms)
         {
@@ -386,7 +341,7 @@ namespace Milionaire
             int[] wrongPerc = new int[count - 1];
             if (count == 2)
             {
-                rightPerc = (new Random()).Next(45, 90);
+                rightPerc = (new Random()).Next(40, 70);
                 before = rightPerc;
                 wrongPerc[0] = 100 - before;
             }
@@ -449,8 +404,6 @@ namespace Milionaire
         private void moneyButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Score = player.Score;
-            Container.Name = player.Name;
-            //await WriteScoreToFile(Container.Score);
             Frame.Navigate(typeof(FinishGamePage));
         }
     }

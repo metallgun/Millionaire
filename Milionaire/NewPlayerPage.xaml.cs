@@ -62,8 +62,11 @@ namespace Milionaire
                 Score = 0
             };
 
-            if (checkdata == true) 
+            if (checkdata)
+            {
+                Container.Name = playerNameTextbox.Text;
                 Frame.Navigate(typeof(NewgamePage), pc);
+            }
         }
 
         //private async Task WriteNameToFile()
