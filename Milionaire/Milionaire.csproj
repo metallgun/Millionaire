@@ -127,6 +127,7 @@
     <Content Include="Assets\640x400.jpg" />
     <Content Include="Assets\gear.png" />
     <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\logo1.png" />
     <Content Include="Assets\logo1.scale-100.png" />
     <Content Include="Assets\logo1.scale-140.png" />
     <Content Include="Assets\logo1.scale-240.png" />
