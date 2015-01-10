@@ -242,7 +242,7 @@ namespace Milionaire
             }
         }
 
-        private void Sleep(int ms)
+        private void Sleep(int ms) 
         {
             DateTime now = DateTime.Now;
             DateTime endOfSleep = now.AddMilliseconds(ms);
