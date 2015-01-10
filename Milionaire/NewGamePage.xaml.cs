@@ -17,7 +17,6 @@ using System.Threading.Tasks;
 using System.Threading;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.Storage;
-using Windows.UI.Core;
 
 // Документацию по шаблону элемента пустой страницы см. по адресу http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -39,67 +38,69 @@ namespace Milionaire
 
         public NewgamePage()
         {
+            
+
             this.InitializeComponent();
-            //перенесено в событие GridLoaded
-            //phoneDialog.Visibility = Visibility.Collapsed;
 
-            //questionList = new List<Question>();
-            //Question.PopulateQuestionList(questionList);
-            //answerButtons.Add(answerButton1);
-            //answerButtons.Add(answerButton2);
-            //answerButtons.Add(answerButton3);
-            //answerButtons.Add(answerButton4);
-            //rectList.Add(aud1);
-            //rectList.Add(aud2);
-            //rectList.Add(aud3);
-            //rectList.Add(aud4);
+            phoneDialog.Visibility = Visibility.Collapsed;
 
-            //foreach (Button b in answerButtons)
-            //{
-            //    b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
-            //    b.Background.Opacity = 0;
-            //    b.Visibility = Visibility.Visible;
+            questionList = new List<Question>();
+            Question.PopulateQuestionList(questionList);
+            answerButtons.Add(answerButton1);
+            answerButtons.Add(answerButton2);
+            answerButtons.Add(answerButton3);
+            answerButtons.Add(answerButton4);
+            rectList.Add(aud1);
+            rectList.Add(aud2);
+            rectList.Add(aud3);
+            rectList.Add(aud4);
 
-            //    b.Click += (sender, e) =>
-            //    {
-            //        foreach (var a in rectList)
-            //        {
-            //            a.Visibility = Visibility.Collapsed;
-            //        }
-            //        b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-            //        b.Background.Opacity = 1;
-            //        //Проверка правильности НЕ РАБОТАЕТ!!!
-            //        if (b.Background.Opacity == 1)
-            //        {
-            //            //Правильный ответ
-            //            if (b.Content.ToString() == correctAnswer)
-            //            {
-            //                Color(b);
-            //                //b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-            //                //Sleep(3000);
-            //                AddingScore();
-            //                FillFeilds(1);
-            //                if (checkring) phoneDialog.Visibility = Visibility.Collapsed;
-            //            }
-            //            //Неправильный ответ
-            //            else
-            //            {
-            //                b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-            //                foreach (Button b1 in answerButtons)
-            //                {
-            //                    if (b1.Content.ToString() == correctAnswer)
-            //                    {
-            //                        b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-            //                    }
-            //                }
-            //                //await WriteScoreToFile(Container.Score);
-            //                //Container.Name = player.Name;
-            //                Frame.Navigate(typeof(FinishGamePage));
-            //            }
-            //        }
-            //    };         
-            //}
-            //FillFeilds(1);
+            foreach (Button b in answerButtons)
+            {
+                b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
+                b.Background.Opacity = 0;
+                b.Visibility = Visibility.Visible;
+
+                b.Click += (sender, e) =>
+                {
+                    foreach (var a in rectList)
+                    {
+                        a.Visibility = Visibility.Collapsed;
+                    }
+                    b.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+                    b.Background.Opacity = 1;
+                    //Проверка правильности НЕ РАБОТАЕТ!!!
+                    if (b.Background.Opacity == 1)
+                    {
+                        //Правильный ответ
+                        if (b.Content.ToString() == correctAnswer)
+                        {
+                            Color(b);
+                            //b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                            //Sleep(3000);
+                            AddingScore();
+                            FillFeilds(1);
+                            if (checkring) phoneDialog.Visibility = Visibility.Collapsed;
+                        }
+                        //Неправильный ответ
+                        else
+                        {
+                            b.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                            foreach (Button b1 in answerButtons)
+                            {
+                                if (b1.Content.ToString() == correctAnswer)
+                                {
+                                    b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                                }
+                            }
+                            //await WriteScoreToFile(Container.Score);
+                            //Container.Name = player.Name;
+                            Frame.Navigate(typeof(FinishGamePage));
+                        }
+                    }
+                };
+            }
+            FillFeilds(1);
         }
 
         /// <summary>
@@ -132,13 +133,13 @@ namespace Milionaire
             }
         }
 
-        private async Task Color(Button button)
+        private async void Color(Button button)
         {
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                    //button.Background = new SolidColorBrush(Windows.UI.Colors.Green);
                 });
-            Sleep(3000);
+            //Sleep(3000);
         }
 
         //Заполнение полей
@@ -241,7 +242,7 @@ namespace Milionaire
             }
         }
 
-        private void Sleep(int ms)
+        private void Sleep(int ms) 
         {
             DateTime now = DateTime.Now;
             DateTime endOfSleep = now.AddMilliseconds(ms);
@@ -404,79 +405,6 @@ namespace Milionaire
         {
             Container.Score = player.Score;
             Frame.Navigate(typeof(FinishGamePage));
-        }
-
-        private async void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            phoneDialog.Visibility = Visibility.Collapsed;
-            
-
-            questionList = new List<Question>();
-            Question.PopulateQuestionList(questionList);
-            answerButtons.Add(answerButton1);
-            answerButtons.Add(answerButton2);
-            answerButtons.Add(answerButton3);
-            answerButtons.Add(answerButton4);
-            rectList.Add(aud1);
-            rectList.Add(aud2);
-            rectList.Add(aud3);
-            rectList.Add(aud4);
-
-            //foreach (Button b in answerButtons)
-            for (int i = 0; i < answerButtons.Count; i++)
-            {
-                //b.Background = new SolidColorBrush(Windows.UI.Colors.Orange);
-                //b.Background.Opacity = 0;
-                answerButtons[i].Visibility = Visibility.Visible;
-
-                answerButtons[i].Click += (sender1, e1) =>
-                {
-                    foreach (var a in rectList)
-                    {
-                        a.Visibility = Visibility.Collapsed;
-                    }
-                    answerButtons[i].Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-                    answerButtons[i].Background.Opacity = 1;
-                    
-                    if (answerButtons[i].Background.Opacity == 1)
-                    {
-                        //Правильный ответ
-                        if (answerButtons[i].Content.ToString() == correctAnswer)
-                        {
-                            Sleep(2000);
-                            //Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                            //{
-                            //    b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                            //});
-                            //b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                            //Sleep(3000);
-                            rectList[i].Visibility = Visibility.Visible;
-                            rectList[i].Fill = new SolidColorBrush(Windows.UI.Colors.Green);
-                            AddingScore();
-                            FillFeilds(1);
-                            Sleep(500);
-                            rectList[i].Visibility = Visibility.Collapsed;
-                            if (checkring) phoneDialog.Visibility = Visibility.Collapsed;
-                        }
-                        //Неправильный ответ
-                        else
-                        {
-                            answerButtons[i].Background = new SolidColorBrush(Windows.UI.Colors.Red);
-                            foreach (Button b1 in answerButtons)
-                            {
-                                if (b1.Content.ToString() == correctAnswer)
-                                {
-                                    b1.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                                }
-                            }
-                            //await WriteScoreToFile(Container.Score);
-                            //Container.Name = player.Name;
-                            Frame.Navigate(typeof(FinishGamePage));
-                        }
-                    }
-                };
-            }
-            FillFeilds(1);
         }
     }
 }
