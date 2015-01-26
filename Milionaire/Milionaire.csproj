@@ -85,6 +85,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BlankPage1.xaml.cs">
+      <DependentUpon>BlankPage1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Container.cs" />
     <Compile Include="FinishGamePage.xaml.cs">
       <DependentUpon>FinishGamePage.xaml</DependentUpon>
@@ -127,6 +130,7 @@
     <Content Include="Assets\640x400.jpg" />
     <Content Include="Assets\gear.png" />
     <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\logo1.png" />
     <Content Include="Assets\logo1.scale-100.png" />
     <Content Include="Assets\logo1.scale-140.png" />
     <Content Include="Assets\logo1.scale-240.png" />
@@ -150,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BlankPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FinishGamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
