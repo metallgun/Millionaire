@@ -75,9 +75,11 @@ namespace Milionaire
                         //Правильный ответ
                         if (b.Content.ToString() == correctAnswer)
                         {
-                            Color(b);
+                            //Color(b);
+                            rectList[1].Visibility = Visibility.Visible;
+                            rectList[1].Fill = new SolidColorBrush(Windows.UI.Colors.Orange);
                             //b.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                            //Sleep(3000);
+                            Sleep(3000);
                             AddingScore();
                             FillFeilds(1);
                             if (checkring) phoneDialog.Visibility = Visibility.Collapsed;
